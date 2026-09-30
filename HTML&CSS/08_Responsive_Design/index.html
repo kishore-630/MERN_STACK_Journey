@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- THIS LINE IS REQUIRED FOR RESPONSIVE DESIGN.
+         Without the viewport meta tag, mobile browsers zoom out
+         and your media queries may not behave as expected. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Responsive Design</h1>
+
+    <p>Responsive design means the page looks good on every screen size &mdash; phone, tablet and desktop.</p>
+
+    <h2>1. The Viewport Meta Tag</h2>
+    <p>Always add this inside <code>&lt;head&gt;</code>:</p>
+    <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+
+    <h2>2. Relative Units</h2>
+    <p>Instead of fixed pixels, use units that respond to the screen:</p>
+    <ul>
+        <li><code>%</code> — percentage of the parent</li>
+        <li><code>vw</code> / <code>vh</code> — 1% of the viewport width / height</li>
+        <li><code>rem</code> — relative to the root font size (usually 16px)</li>
+        <li><code>em</code> — relative to the parent font size</li>
+    </ul>
+
+    <div class="units-box">This box uses width: 50% and padding: 3vw</div>
+
+    <h2>3. clamp(), min() and max()</h2>
+    <p>These let you set a minimum, a maximum and a flexible value &mdash; without media queries.</p>
+    <div class="clamp-heading">clamp() heading &mdash; resizes smoothly</div>
+    <div class="min-max-box">min(100%, 600px) &mdash; never wider than 600px</div>
+
+    <h2>4. max-width (the simplest responsive fix)</h2>
+    <div class="max-width-box">This box has max-width: 500px so it does not stretch on large screens.</div>
+
+    <h2>5. Responsive Image</h2>
+    <p>An image with <code>max-width: 100%</code> will shrink to fit its container.</p>
+    <img class="responsive-img" src="https://via.placeholder.com/900x250/0d6efd/ffffff?text=Resize+your+browser+window" alt="Responsive image example">
+
+    <h2>6. Media Queries</h2>
+    <p>Media queries apply CSS <strong>only when the screen matches a condition</strong>.
+       Shrink your browser window to see the boxes below change size.</p>
+
+    <div class="media-demo">This box changes color and padding at 768px and at 480px.</div>
+
+    <h2>7. Common Breakpoints</h2>
+    <table border="1" cellpadding="8" width="100%">
+        <tr>
+            <th>Device</th>
+            <th>Screen width</th>
+            <th>Typical breakpoint</th>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>up to 600px</td>
+            <td><code>max-width: 600px</code></td>
+        </tr>
+        <tr>
+            <td>Small tablet</td>
+            <td>601px &ndash; 768px</td>
+            <td><code>max-width: 768px</code></td>
+        </tr>
+        <tr>
+            <td>Desktop</td>
+            <td>769px and above</td>
+            <td><code>min-width: 769px</code></td>
+        </tr>
+    </table>
+
+    <h2>8. Flexbox That Wraps Automatically</h2>
+    <p>Often you do not need media queries at all. Flexbox with <code>flex-wrap: wrap</code>
+       and <code>flex: 1 1 200px</code> adapts by itself.</p>
+
+    <div class="auto-cards">
+        <div class="auto-card">Card 1</div>
+        <div class="auto-card">Card 2</div>
+        <div class="auto-card">Card 3</div>
+        <div class="auto-card">Card 4</div>
+    </div>
+
+    <h2>9. Practical Example: Responsive Layout</h2>
+
+    <div class="layout">
+        <header class="layout-header">Header</header>
+        <nav class="layout-nav">Nav</nav>
+        <main class="layout-main">Main Content</main>
+        <aside class="layout-aside">Sidebar</aside>
+    </div>
+
+</body>
+</html>

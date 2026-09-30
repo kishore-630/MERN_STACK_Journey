@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and APIs</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 12px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 { margin: 0 0 6px; color: #0d6efd; }
+        .card p { margin: 3px 0; font-size: 14px; }
+
+        button {
+            background-color: #0d6efd;
+            color: #fff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 3px;
+        }
+
+        button:hover { background-color: #0a58ca; }
+        button:disabled { background-color: #adb5bd; cursor: not-allowed; }
+
+        #status { font-weight: bold; }
+        .loading { color: #dc3545; }
+        .success { color: #198754; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <h1>11. Fetch and APIs</h1>
+
+    <p><strong>API</strong> = Application Programming Interface. An API is a URL that gives you data
+       when you request it. The most common format returned today is JSON.</p>
+
+    <p>This example uses the free test API <code>jsonplaceholder.typicode.com</code>.
+       <strong>An internet connection is required.</strong></p>
+
+    <h2>1. What fetch() does</h2>
+    <pre>fetch(url)
+    .then(response =&gt; response.json())   // convert the response to a JavaScript object
+    .then(data =&gt; { ... })                // do something with the data
+    .catch(error =&gt; { ... })              // handle any error</pre>
+
+    <p><code>fetch()</code> always returns a <strong>Promise</strong>, because the data has to travel
+       over the internet and that takes time. See the <code>12_Promises</code> example for the full picture.</p>
+
+    <h2>2. GET a single user</h2>
+    <button id="btnOne">Load User 1</button>
+    <button id="btnSeven">Load User 7</button>
+    <p id="status" class="loading">Waiting for a request...</p>
+
+    <h2>3. GET a list of users</h2>
+    <button id="btnList">Load 5 Users</button>
+    <div id="userList"></div>
+
+    <h2>4. Loading state and error handling</h2>
+    <p>A real app must handle three states: <strong>loading</strong>, <strong>success</strong> and <strong>error</strong>.</p>
+    <button id="btnError">Try a broken request</button>
+
+    <h2>Response</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

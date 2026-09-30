@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+
+        .demo-box {
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 18px;
+            margin: 15px 0;
+        }
+
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #0d6efd;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #0d6efd;
+            color: #fff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 3px;
+        }
+
+        button:hover { background-color: #0a58ca; }
+
+        .highlight { background-color: #fff3cd; }
+        .blue-text { color: #0d6efd; }
+        .big { font-size: 26px; }
+    </style>
+</head>
+<body>
+
+    <h1>8. DOM Manipulation</h1>
+
+    <p><strong>DOM</strong> = Document Object Model. It is the live tree structure of your HTML page.
+       With JavaScript you can find elements on the page and change them.</p>
+
+    <h2>1. Selecting Elements</h2>
+    <table border="1" cellpadding="8" width="100%">
+        <tr><th>Method</th><th>What it selects</th><th>Returns</th></tr>
+        <tr><td><code>getElementById("x")</code></td><td>One element by its id</td><td>One element or null</td></tr>
+        <tr><td><code>querySelector(".x")</code></td><td>First match</td><td>One element or null</td></tr>
+        <tr><td><code>querySelectorAll(".x")</code></td><td>All matches</td><td>NodeList (like an array)</td></tr>
+    </table>
+
+    <h2>2. Changing Content</h2>
+    <ul>
+        <li><code>el.textContent = "new text"</code> &mdash; safe, treats text as plain text</li>
+        <li><code>el.innerHTML = "&lt;b&gt;new&lt;/b&gt;"</code> &mdash; also works with HTML tags</li>
+    </ul>
+
+    <h2>3. Changing Styles and Attributes</h2>
+    <ul>
+        <li><code>el.style.color = "red"</code></li>
+        <li><code>el.classList.add("highlight")</code></li>
+        <li><code>el.setAttribute("title", "hello")</code></li>
+    </ul>
+
+    <h2>4. Creating and Removing Elements</h2>
+
+    <h2>Try it live</h2>
+
+    <div class="demo-box">
+        <h3 id="heading">This heading will change</h3>
+        <p id="para">This paragraph will change too.</p>
+        <p id="style-demo">Watch this text change colour and size.</p>
+        <ul id="list">
+            <li>First item</li>
+            <li>Second item</li>
+        </ul>
+        <div id="new-items"></div>
+        <p id="remove-demo">I will be removed from the page.</p>
+    </div>
+
+    <button id="btnText">Change Text</button>
+    <button id="btnStyle">Change Style</button>
+    <button id="btnClass">Toggle Class</button>
+    <button id="btnAdd">Add List Items</button>
+    <button id="btnRemove">Remove Paragraph</button>
+    <button id="btnReset">Reset Everything</button>
+
+    <h2>Console output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

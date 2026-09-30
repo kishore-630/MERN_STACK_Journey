@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #0d6efd;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>5. Functions</h1>
+
+    <p>A function is a reusable block of code that runs only when you call it.</p>
+
+    <h2>1. Function Declaration</h2>
+    <pre>function greet(name) {
+    return "Hello " + name;
+}</pre>
+
+    <h2>2. Function Expression</h2>
+    <p>The function is stored in a variable, so it can be passed around like any other value.</p>
+    <pre>const add = function (a, b) {
+    return a + b;
+};</pre>
+
+    <h2>3. Arrow Functions</h2>
+    <p>A shorter syntax. Very common in modern JavaScript.</p>
+    <pre>const add = (a, b) =&gt; a + b;</pre>
+
+    <h2>4. Parameters and Arguments</h2>
+    <ul>
+        <li><strong>Parameters</strong> are the names in the function definition: <code>function add(a, b)</code></li>
+        <li><strong>Arguments</strong> are the real values you pass in: <code>add(5, 3)</code></li>
+        <li><strong>return</strong> sends a value back to where the function was called</li>
+    </ul>
+
+    <h2>5. Default Parameters</h2>
+    <p>Used when the caller does not pass a value.</p>
+    <pre>function greet(name = "Guest") { ... }</pre>
+
+    <h2>6. Rest Parameters (...)</h2>
+    <p>Collects many arguments into an array.</p>
+    <pre>function total(...numbers) { ... }</pre>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* =========================================
+   CSS SELECTORS - Simple Examples
+========================================= */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    line-height: 1.6;
+}
+
+/* 1. ELEMENT SELECTOR
+   Targets every <p> on the page. */
+p {
+    color: #444;
+}
+
+/* 2. CLASS SELECTOR
+   The dot means "class". Applies only to elements with class="highlight". */
+.highlight {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 8px 12px;
+    color: #664d03;
+}
+
+/* 3. ID SELECTOR
+   The # means "id". Used for one unique element only. */
+#unique-title {
+    color: #d63384;
+    border-bottom: 2px dashed #d63384;
+    display: inline-block;
+}
+
+/* 4. GROUPING SELECTOR
+   Several selectors share one style block, separated by commas. */
+h1,
+h2,
+h3 {
+    color: #0d6efd;
+}
+
+/* 5. DESCENDANT SELECTOR
+   A space means "anywhere inside". */
+.box {
+    background-color: #e7f1ff;
+    border: 1px solid #0d6efd;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+.box p {
+    color: #0a3d7a;
+    font-weight: bold;
+}
+
+/* 6. CHILD SELECTOR
+   The > means "direct child only". */
+.list-demo {
+    border: 1px dashed #6c757d;
+    padding: 12px;
+}
+
+.list-demo > p {
+    color: #198754;
+}
+
+/* 6b. ADJACENT SIBLING SELECTOR
+   The + means "the element immediately after it". */
+h2 + p {
+    font-style: italic;
+    color: #6c757d;
+}

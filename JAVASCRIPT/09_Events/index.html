@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+
+        .demo-box {
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 18px;
+            margin: 15px 0;
+        }
+
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #d63384;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        button {
+            background-color: #0d6efd;
+            color: #fff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 3px;
+        }
+
+        button:hover { background-color: #0a58ca; }
+
+        input, select, textarea {
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 14px;
+            margin: 4px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #typed { border: 2px solid #0d6efd; min-width: 250px; }
+
+        .success { color: #198754; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <h1>9. Events</h1>
+
+    <p>An <strong>event</strong> is something that happens on the page &mdash; a click, typing,
+       pressing a key, submitting a form. You use <code>addEventListener()</code> to run your code when it happens.</p>
+
+    <pre>element.addEventListener("eventName", function () {
+    // runs when the event happens
+});</pre>
+
+    <h2>Common Events</h2>
+    <table border="1" cellpadding="8" width="100%">
+        <tr><th>Event</th><th>Fires when</th></tr>
+        <tr><td><code>click</code></td><td>An element is clicked</td></tr>
+        <tr><td><code>input</code></td><td>The user types in a text field</td></tr>
+        <tr><td><code>change</code></td><td>The value of a select/checkbox changes</td></tr>
+        <tr><td><code>submit</code></td><td>A form is submitted</td></tr>
+        <tr><td><code>keydown</code></td><td>A key is pressed down</td></tr>
+        <tr><td><code>mouseover</code></td><td>The mouse moves over an element</td></tr>
+        <tr><td><code>focus</code></td><td>An input gets focus (clicked into)</td></tr>
+    </table>
+
+    <h2>1. Simple Click Event</h2>
+    <button id="clickBtn">Click me</button>
+    <p id="clickResult">Nothing has happened yet.</p>
+
+    <h2>2. Input Event (reading what the user types)</h2>
+    <p>
+        <input type="text" id="typed" placeholder="Type something here">
+    </p>
+    <p id="typedResult">Your text will appear here.</p>
+
+    <h2>3. Change Event (dropdown)</h2>
+    <p>
+        <select id="course">
+            <option value="">-- Choose --</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+        </select>
+    </p>
+    <p id="courseResult">Choose a course.</p>
+
+    <h2>4. Keyboard Event</h2>
+    <p>
+        <input type="text" id="keyInput" placeholder="Type a capital letter">
+    </p>
+    <p id="keyResult">Only capital letters are allowed here.</p>
+
+    <h2>5. Form Submit Event with Validation</h2>
+
+    <div class="demo-box">
+        <form id="signupForm">
+            <p>
+                <label for="fname">Name:</label><br>
+                <!-- required is built-in browser validation -->
+                <input type="text" id="fname" placeholder="Enter your name" required>
+            </p>
+            <p>
+                <label for="femail">Email:</label><br>
+                <input type="email" id="femail" placeholder="you@example.com" required>
+            </p>
+            <p>
+                <label for="fage">Age:</label><br>
+                <input type="number" id="fage" placeholder="18" min="1" max="100">
+            </p>
+            <p id="formMessage"></p>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <h2>6. Mouse Events</h2>
+    <p id="mouseArea" style="background-color: #f1f3f5; padding: 25px; border-radius: 8px; border: 2px dashed #6c757d;">
+        Move your mouse over this box, then click it.
+    </p>
+    <p id="mouseResult">Mouse message will appear here.</p>
+
+    <h2>Event Log</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

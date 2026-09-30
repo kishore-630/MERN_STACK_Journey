@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>CSS Flexbox</h1>
+
+    <p>Flexbox is a <strong>one-dimensional</strong> layout system. It arranges items in a row or a column.</p>
+
+    <h2>1. The Two Properties That Matter Most</h2>
+
+    <ul>
+        <li><code>display: flex</code> &mdash; turns an element into a flex container</li>
+        <li><code>display: inline-flex</code> &mdash; same, but the container shrinks to fit its content</li>
+    </ul>
+
+    <h3>Horizontal row (default direction)</h3>
+    <div class="flex-container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <h3>Vertical column</h3>
+    <div class="flex-container column">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <h2>2. justify-content &mdash; Main Axis (horizontal by default)</h2>
+
+    <div class="label">flex-start</div>
+    <div class="flex-container justify-start">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <div class="label">center</div>
+    <div class="flex-container justify-center">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <div class="label">space-between</div>
+    <div class="flex-container justify-between">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <div class="label">space-around &nbsp;|&nbsp; space-evenly</div>
+    <div class="flex-container justify-around">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+    <div class="flex-container justify-evenly">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <h2>3. align-items &mdash; Cross Axis (vertical by default)</h2>
+
+    <div class="label">flex-start</div>
+    <div class="flex-container align-start tall">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <div class="label">center</div>
+    <div class="flex-container align-center tall">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <div class="label">stretch (default)</div>
+    <div class="flex-container align-stretch tall">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+    </div>
+
+    <h2>4. gap instead of margins</h2>
+
+    <div class="flex-container gap-container">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div>
+    </div>
+
+    <h2>5. flex-wrap &mdash; Move Items to the Next Line</h2>
+
+    <div class="flex-container wrap">
+        <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+        <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        <div class="item">7</div><div class="item">8</div>
+    </div>
+
+    <h2>6. flex-grow, flex-shrink, flex-basis</h2>
+
+    <p>These control how each item shares the available space.</p>
+
+    <div class="flex-container grow-demo">
+        <div class="item grow-1">grow: 1</div>
+        <div class="item grow-2">grow: 2</div>
+        <div class="item grow-1">grow: 1</div>
+    </div>
+    <p>The middle item is twice as wide because its <code>flex-grow</code> is 2.</p>
+
+    <h2>7. Practical Example: Centering a Box</h2>
+
+    <!-- The most common Flexbox pattern: perfectly center one box on a page -->
+    <div class="center-wrapper">
+        <div class="center-box">Perfectly centered with Flexbox</div>
+    </div>
+
+    <h2>8. Practical Example: Profile Layout</h2>
+
+    <div class="profile">
+        <img class="avatar" src="https://via.placeholder.com/90x90/6366F1/ffffff?text=KG" alt="Profile photo">
+        <div class="profile-text">
+            <h3>Gurrala Kishore Kumar</h3>
+            <p>Computer Science &amp; Engineering Student</p>
+            <p>Learning HTML, CSS and JavaScript step by step.</p>
+        </div>
+        <button class="follow-btn">Follow</button>
+    </div>
+
+</body>
+</html>

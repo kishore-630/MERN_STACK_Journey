@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f0f2f5;
+        }
+
+        .app {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 { color: #212529; margin-top: 0; }
+
+        .add-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        #taskInput {
+            flex: 1;
+            padding: 11px 14px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            border: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            background-color: #0d6efd;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover { background-color: #0a58ca; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* A completed task is shown with a line through it */
+        li.done .task-text {
+            text-decoration: line-through;
+            color: #adb5bd;
+        }
+
+        .task-text {
+            flex: 1;
+        }
+
+        .delete-btn {
+            background-color: transparent;
+            color: #dc3545;
+            font-size: 18px;
+            padding: 2px 8px;
+        }
+
+        .delete-btn:hover { background-color: #ffe3e3; }
+
+        .empty {
+            color: #adb5bd;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+        <h1>My To-Do List</h1>
+
+        <div class="add-row">
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <!-- JavaScript builds the list items inside this ul -->
+        <ul id="taskList"></ul>
+
+        <div class="info">
+            <span id="count">0 tasks left</span>
+            <button id="clearDone">Clear completed</button>
+        </div>
+    </div>
+
+    <script>
+        // --- STATE ---
+        // Every task is an object: { id, text, done }
+        // An array of these objects is the standard way to hold a to-do list.
+        let tasks = [
+            { id: 1, text: "Learn HTML basics", done: true },
+            { id: 2, text: "Practise CSS Flexbox", done: false }
+        ];
+
+        let nextId = 3;
+
+        const taskList = document.getElementById("taskList");
+        const taskInput = document.getElementById("taskInput");
+        const countDisplay = document.getElementById("count");
+
+        // --- RENDER ---
+        // This function rebuilds the whole list from the tasks array.
+        // Keeping the HTML in one place like this is much easier to maintain
+        // than creating and editing elements one by one.
+        function render() {
+            // Start with an empty list
+            taskList.innerHTML = "";
+
+            if (tasks.length === 0) {
+                let empty = document.createElement("li");
+                empty.className = "empty";
+                empty.textContent = "No tasks yet. Add one above!";
+                taskList.appendChild(empty);
+            }
+
+            tasks.forEach(function (task) {
+                let item = document.createElement("li");
+
+                // The "done" class controls the grey + line-through styling
+                if (task.done) {
+                    item.className = "done";
+                }
+
+                // Checkbox to mark the task complete
+                let checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.checked = task.done;
+                checkbox.addEventListener("change", function () {
+                    task.done = !task.done;
+                    render();
+                });
+
+                // The task text
+                let text = document.createElement("span");
+                text.className = "task-text";
+                text.textContent = task.text;
+
+                // Delete button
+                let deleteBtn = document.createElement("button");
+                deleteBtn.className = "delete-btn";
+                deleteBtn.textContent = "×";
+                deleteBtn.addEventListener("click", function () {
+                    // filter() creates a new array without the deleted task
+                    tasks = tasks.filter(function (t) {
+                        return t.id !== task.id;
+                    });
+                    render();
+                });
+
+                item.appendChild(checkbox);
+                item.appendChild(text);
+                item.appendChild(deleteBtn);
+                taskList.appendChild(item);
+            });
+
+            // Update the "x tasks left" text
+            let left = tasks.filter(function (task) {
+                return !task.done;
+            }).length;
+
+            countDisplay.textContent = left + (left === 1 ? " task left" : " tasks left");
+        }
+
+        // --- ADD A TASK ---
+        function addTask() {
+            const text = taskInput.value.trim();
+
+            // Do not add an empty task
+            if (text === "") {
+                return;
+            }
+
+            tasks.push({ id: nextId, text: text, done: false });
+            nextId++;
+
+            // Clear the input and put the cursor back in it
+            taskInput.value = "";
+            taskInput.focus();
+
+            render();
+        }
+
+        document.getElementById("addBtn").addEventListener("click", addTask);
+
+        // Pressing Enter in the input also adds the task
+        taskInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        });
+
+        // --- CLEAR COMPLETED TASKS ---
+        document.getElementById("clearDone").addEventListener("click", function () {
+            tasks = tasks.filter(function (task) {
+                return !task.done;
+            });
+            render();
+        });
+
+        // Build the list when the page loads
+        render();
+    </script>
+
+</body>
+</html>

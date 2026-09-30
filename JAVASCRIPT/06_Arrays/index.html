@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #20c997;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>6. Arrays</h1>
+
+    <p>An array stores multiple values in <strong>one</strong> variable, in order.</p>
+    <pre>let fruits = ["Apple", "Banana", "Mango"];</pre>
+
+    <h2>1. Creating an Array</h2>
+    <ul>
+        <li><code>let arr = [10, 20, 30];</code></li>
+        <li><code>let arr = new Array(10, 20, 30);</code> (less common)</li>
+    </ul>
+
+    <h2>2. Accessing Items</h2>
+    <p>Indexing starts at <strong>0</strong>. So the first item is <code>arr[0]</code>.</p>
+    <ul>
+        <li><code>arr.length</code> &mdash; how many items</li>
+        <li><code>arr[arr.length - 1]</code> &mdash; the last item</li>
+    </ul>
+
+    <h2>3. Common Array Methods</h2>
+    <table border="1" cellpadding="8" width="100%">
+        <tr><th>Method</th><th>What it does</th><th>Changes the array?</th></tr>
+        <tr><td><code>push(x)</code></td><td>Add to the end</td><td>Yes</td></tr>
+        <tr><td><code>pop()</code></td><td>Remove from the end</td><td>Yes</td></tr>
+        <tr><td><code>unshift(x)</code></td><td>Add to the start</td><td>Yes</td></tr>
+        <tr><td><code>shift()</code></td><td>Remove from the start</td><td>Yes</td></tr>
+        <tr><td><code>slice(a, b)</code></td><td>Copy a part of the array</td><td>No</td></tr>
+        <tr><td><code>concat(a)</code></td><td>Join two arrays</td><td>No</td></tr>
+        <tr><td><code>indexOf(x)</code></td><td>Position of an item (-1 if not found)</td><td>No</td></tr>
+        <tr><td><code>includes(x)</code></td><td>true / false if the item exists</td><td>No</td></tr>
+    </table>
+
+    <h2>4. Modern Array Methods (very important)</h2>
+    <ul>
+        <li><code>map()</code> &mdash; transform every item, returns a NEW array</li>
+        <li><code>filter()</code> &mdash; keep only items that pass a test</li>
+        <li><code>find()</code> &mdash; the FIRST item that matches</li>
+        <li><code>reduce()</code> &mdash; combine all items into one value</li>
+        <li><code>forEach()</code> &mdash; just run a function on each item</li>
+        <li><code>sort()</code> &mdash; sort the array</li>
+    </ul>
+
+    <h2>5. The Spread Operator (...)</h2>
+    <p>Used to copy an array, merge arrays, or pass array items as function arguments.</p>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+</head>
+<body>
+
+    <h1>Tables in HTML</h1>
+
+    <p>Tables are used to show data in rows and columns.</p>
+
+    <h2>1. Simple Table</h2>
+
+    <!-- <table> starts the table.
+         <tr>  = table row
+         <th>  = table header cell (bold, centred by default)
+         <td>  = table data cell -->
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Subject</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Kishore</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Ravi</td>
+            <td>CSS</td>
+        </tr>
+    </table>
+
+    <h2>2. Using <code>thead</code>, <code>tbody</code> and <code>tfoot</code></h2>
+
+    <!-- These tags group the rows of the table. They make the table easier to
+         understand and easier for search engines and screen readers. -->
+
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Notebook</td>
+                <td>5</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Pen</td>
+                <td>20</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <td>25</td>
+                <td>350</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>3. Using <code>colspan</code> and <code>rowspan</code></h2>
+
+    <!-- colspan = how many columns a cell covers
+         rowspan  = how many rows a cell covers -->
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th colspan="2">Course Details</th>
+        </tr>
+        <tr>
+            <th>Subject</th>
+            <th>Duration</th>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>10 hours</td>
+        </tr>
+        <tr>
+            <td>CSS</td>
+            <td>15 hours</td>
+        </tr>
+    </table>
+
+    <h2>4. Table with a Caption</h2>
+
+    <table border="1" cellpadding="8">
+        <caption>My Weekly Study Plan</caption>
+        <tr>
+            <th>Day</th>
+            <th>Topic</th>
+            <th>Hours</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>HTML</td>
+            <td>1.5</td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td>CSS</td>
+            <td>1.5</td>
+        </tr>
+    </table>
+
+</body>
+</html>

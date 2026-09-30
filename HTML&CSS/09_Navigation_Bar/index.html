@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Building a Navigation Bar</h1>
+
+    <h2>1. Simple Horizontal Navbar (Flexbox)</h2>
+
+    <!-- The most common way to build a navbar today: a flex container with a logo on the
+         left and the links pushed to the right using margin-left: auto. -->
+    <nav class="navbar">
+        <div class="logo">MySite</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h2>2. Navbar with Hover Effects and an Active Link</h2>
+
+    <nav class="navbar navbar-dark">
+        <div class="logo">Brand</div>
+        <ul class="nav-links">
+            <li><a class="active" href="#">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <button class="nav-btn">Login</button>
+    </nav>
+
+    <h2>3. Vertical Sidebar Navigation</h2>
+
+    <div class="sidebar-layout">
+        <aside class="sidebar">
+            <div class="sidebar-title">Menu</div>
+            <a href="#">Dashboard</a>
+            <a href="#">Files</a>
+            <a href="#">Messages</a>
+            <a href="#">Gallery</a>
+            <a href="#">Logout</a>
+        </aside>
+        <main class="sidebar-content">
+            <h3>Content Area</h3>
+            <p>The sidebar is fixed on the left and the content takes the remaining space.</p>
+        </main>
+    </div>
+
+    <h2>4. Sticky Navbar</h2>
+
+    <p>Scroll down slowly &mdash; the navbar below stays fixed at the top of the screen.</p>
+
+    <nav class="navbar navbar-sticky">
+        <div class="logo">Sticky</div>
+        <ul class="nav-links">
+            <li><a href="#">Top</a></li>
+            <li><a href="#nav">Navigation</a></li>
+        </ul>
+    </nav>
+
+    <div style="height: 300px; background-color: #f8f9fa; border: 1px dashed #adb5bd; padding: 15px; margin: 15px 0;">
+        Scroll space. The sticky navbar above stays visible.
+    </div>
+
+    <h2>5. Responsive Navbar</h2>
+
+    <p>On a small screen the links stack vertically. Try shrinking your browser window below 600px.</p>
+
+    <nav class="navbar navbar-responsive">
+        <div class="logo">Responsive</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h2>6. Breadcrumb Navigation</h2>
+
+    <nav class="breadcrumb">
+        <a href="#">Home</a> <span>/</span>
+        <a href="#">Dashboard</a> <span>/</span>
+        <a href="#">Profile</a>
+    </nav>
+
+    <h2>Key CSS Properties Used</h2>
+    <ul>
+        <li><code>display: flex</code> + <code>justify-content: space-between</code> &mdash; layout of the navbar</li>
+        <li><code>margin-left: auto</code> &mdash; pushes the links to the right side</li>
+        <li><code>list-style: none</code> &mdash; removes the bullet points from the <code>&lt;ul&gt;</code></li>
+        <li><code>text-decoration: none</code> &mdash; removes the underline from links</li>
+        <li><code>position: sticky</code> &mdash; keeps the navbar visible while scrolling</li>
+    </ul>
+
+</body>
+</html>

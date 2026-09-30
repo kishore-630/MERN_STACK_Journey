@@ -1,0 +1,195 @@
+/* =========================================
+   FLEXBOX - Simple Examples
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    color: #212529;
+}
+
+/* Labels above each demo so it is clear which property is being tested */
+.label {
+    font-family: monospace;
+    font-size: 13px;
+    color: #6c757d;
+    margin: 14px 0 4px;
+}
+
+/* --- THE MAIN CLASS ---
+   display: flex turns this element into a flex container.
+   Its direct children become "flex items". */
+.flex-container {
+    display: flex;
+    background-color: #f1f3f5;
+    border: 2px dashed #6c757d;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    min-height: 70px;
+}
+
+/* A basic flex item */
+.item {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* --- 1. DIRECTION --- */
+
+/* default direction is row (left to right) */
+.column {
+    flex-direction: column;
+}
+
+/* --- 2. JUSTIFY-CONTENT (main axis = horizontal) --- */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    /* first item at the start, last item at the end, space in between */
+    justify-content: space-between;
+}
+
+.justify-around {
+    /* equal space around each item, so the edge gaps are half size */
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    /* equal space between all items AND at the edges */
+    justify-content: space-evenly;
+}
+
+/* --- 3. ALIGN-ITEMS (cross axis = vertical) --- */
+
+/* a taller container so the difference is clearly visible */
+.tall {
+    min-height: 150px;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    /* default behaviour: items stretch to fill the height */
+    align-items: stretch;
+}
+
+/* --- 4. GAP --- */
+
+/* gap is the space BETWEEN items.
+   It is cleaner than giving every item a margin. */
+.gap-container {
+    gap: 15px;
+}
+
+/* --- 5. FLEX-WRAP --- */
+
+/* by default items shrink instead of wrapping to a new line.
+   flex-wrap: wrap allows them to move to the next line. */
+.wrap {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* --- 6. FLEX-GROW / SHRINK / BASIS --- */
+.grow-demo .item {
+    /* flex-grow: 0 = do not grow, 1 = share space equally, 2 = share twice as much */
+    flex-grow: 1;
+    text-align: center;
+}
+
+.grow-demo .grow-2 {
+    flex-grow: 2;
+}
+
+/* --- 7. CENTERING A BOX --- */
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.center-box {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 25px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* --- 8. PROFILE LAYOUT --- */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 520px;
+    padding: 18px;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    /* flex-shrink: 0 stops the image from squashing on small screens */
+    flex-shrink: 0;
+}
+
+.profile-text {
+    /* flex: 1 lets this text take all the remaining space */
+    flex: 1;
+}
+
+.profile-text h3,
+.profile-text p {
+    margin: 2px 0;
+}
+
+.follow-btn {
+    background-color: #198754;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.follow-btn:hover {
+    background-color: #146c43;
+}

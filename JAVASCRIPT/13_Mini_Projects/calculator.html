@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1e1e2e;
+            color: #eee;
+        }
+
+        h1 { margin-top: 0; }
+
+        .calc {
+            background-color: #2a2a3d;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            width: 300px;
+        }
+
+        /* The screen of the calculator */
+        #display {
+            background-color: #11111b;
+            color: #00ff88;
+            font-size: 32px;
+            font-family: Consolas, monospace;
+            text-align: right;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            /* Stops very long results from breaking the layout */
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        /* Grid makes the buttons line up neatly */
+        .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        button {
+            border: none;
+            padding: 18px 0;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #3a3a52;
+            color: #fff;
+        }
+
+        button:hover { background-color: #4a4a68; }
+
+        .operator { background-color: #ff9f43; }
+        .operator:hover { background-color: #e8892c; }
+
+        .equals { background-color: #00c853; }
+        .equals:hover { background-color: #00a844; }
+
+        .clear { background-color: #ff4757; }
+        .clear:hover { background-color: #d93a49; }
+    </style>
+</head>
+<body>
+
+    <h1>Calculator</h1>
+
+    <div class="calc">
+        <div id="display">0</div>
+
+        <div class="keys">
+            <button class="clear" data-value="C">C</button>
+            <button data-value="←">&#8592;</button>
+            <button class="operator" data-value="/">&divide;</button>
+            <button class="operator" data-value="*">&times;</button>
+
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button class="operator" data-value="-">&minus;</button>
+
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button class="operator" data-value="+">+</button>
+
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button class="equals" data-value="=">=</button>
+
+            <button data-value="0">0</button>
+            <button data-value=".">.</button>
+            <button data-value="%">%</button>
+            <button class="operator" data-value="^">&radic;</button>
+        </div>
+    </div>
+
+    <script>
+        // --- STATE ---
+        // currentInput holds what is on the screen right now
+        // previousValue and operator hold the pending calculation
+        let currentInput = "0";
+        let previousValue = null;
+        let operator = null;
+        let waitingForNewInput = false;
+
+        const display = document.getElementById("display");
+
+        // --- DISPLAY ---
+        function updateDisplay() {
+            display.textContent = currentInput;
+        }
+
+        // --- CALCULATE ---
+        function calculate(a, op, b) {
+            // a and b come from the button, so convert them to numbers
+            const numA = parseFloat(a);
+            const numB = parseFloat(b);
+
+            switch (op) {
+                case "+": return numA + numB;
+                case "-": return numA - numB;
+                case "*": return numA * numB;
+                case "/":
+                    // A number cannot be divided by zero
+                    if (numB === 0) {
+                        alert("Cannot divide by zero!");
+                        return 0;
+                    }
+                    return numA / numB;
+                case "%": return numA % numB;
+                case "^": return Math.pow(numA, numB);
+                default: return numB;
+            }
+        }
+
+        // --- BUTTONS ---
+        // querySelectorAll gets all 20 buttons at once
+        const buttons = document.querySelectorAll(".keys button");
+
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                const value = button.getAttribute("data-value");
+
+                // C clears everything
+                if (value === "C") {
+                    currentInput = "0";
+                    previousValue = null;
+                    operator = null;
+                    waitingForNewInput = false;
+
+                // The backspace button removes the last digit
+                } else if (value === "←") {
+                    currentInput = currentInput.slice(0, -1);
+                    if (currentInput === "" || currentInput === "-") {
+                        currentInput = "0";
+                    }
+
+                // "=" finishes the pending calculation
+                } else if (value === "=") {
+                    if (operator !== null && previousValue !== null) {
+                        currentInput = String(calculate(previousValue, operator, currentInput));
+                        previousValue = null;
+                        operator = null;
+                        waitingForNewInput = false;
+                    }
+
+                // A digit or a dot starts a fresh number
+                } else if (/^[0-9.]$/.test(value)) {
+                    if (waitingForNewInput) {
+                        currentInput = value;
+                        waitingForNewInput = false;
+                    } else {
+                        // Do not allow two dots in the same number
+                        if (value === "." && currentInput.includes(".")) {
+                            return;
+                        }
+                        // 0 is replaced instead of appended to, so the screen stays tidy
+                        if (currentInput === "0" && value !== ".") {
+                            currentInput = value;
+                        } else {
+                            currentInput += value;
+                        }
+                    }
+
+                // Anything else is an operator
+                } else {
+                    // If a calculation is already pending, finish it first
+                    if (operator !== null && previousValue !== null && !waitingForNewInput) {
+                        currentInput = String(calculate(previousValue, operator, currentInput));
+                    }
+                    previousValue = currentInput;
+                    operator = value;
+                    waitingForNewInput = true;
+                }
+
+                updateDisplay();
+            });
+        });
+
+        // --- KEYBOARD SUPPORT ---
+        document.addEventListener("keydown", function (event) {
+            if (/^[0-9.]$/.test(event.key)) {
+                appendNumber(event.key);
+            } else if (["+", "-", "*", "/"].includes(event.key)) {
+                setOperator(event.key);
+            } else if (event.key === "Enter" || event.key === "=") {
+                doEquals();
+            } else if (event.key === "Backspace") {
+                currentInput = currentInput.slice(0, -1);
+                if (currentInput === "") currentInput = "0";
+                updateDisplay();
+            } else if (event.key === "Escape") {
+                currentInput = "0";
+                previousValue = null;
+                operator = null;
+                waitingForNewInput = false;
+                updateDisplay();
+            }
+        });
+
+        // Small helpers reused by the keyboard handler
+        function appendNumber(value) {
+            if (currentInput === "0") {
+                currentInput = value;
+            } else {
+                currentInput += value;
+            }
+            waitingForNewInput = false;
+            updateDisplay();
+        }
+
+        function setOperator(op) {
+            previousValue = currentInput;
+            operator = op;
+            waitingForNewInput = true;
+        }
+
+        function doEquals() {
+            if (operator !== null && previousValue !== null) {
+                currentInput = String(calculate(previousValue, operator, currentInput));
+                previousValue = null;
+                operator = null;
+                waitingForNewInput = false;
+                updateDisplay();
+            }
+        }
+    </script>
+
+</body>
+</html>

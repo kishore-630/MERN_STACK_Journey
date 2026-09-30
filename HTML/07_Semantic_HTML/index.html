@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML</title>
+</head>
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Front-End Developer in Progress</p>
+    </header>
+
+    <nav>
+        <!-- <nav> holds the main navigation links of the page -->
+        <a href="#about">About</a> |
+        <a href="#skills">Skills</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <hr>
+
+    <main>
+        <!-- <main> should contain the main unique content of the page.
+             There should be only ONE <main> per page. -->
+
+        <section id="about">
+            <!-- <section> groups related content under a heading -->
+            <h2>About</h2>
+            <p>I am a Computer Science student learning to build websites with HTML, CSS and JavaScript.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <article>
+                <!-- <article> is for content that could stand on its own, like a blog post -->
+                <h3>Front-End</h3>
+                <p>I can write semantic HTML and style it using modern CSS.</p>
+            </article>
+
+            <article>
+                <h3>Back-End (Learning)</h3>
+                <p>Currently learning Node.js, Express.js and MongoDB.</p>
+            </article>
+
+            <aside>
+                <!-- <aside> is secondary content, like a sidebar or a note -->
+                <h4>Currently</h4>
+                <p>Working through JavaScript fundamentals.</p>
+            </aside>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer id="contact">
+        <!-- <footer> appears at the bottom of the page -->
+        <p>Contact: your-email@example.com</p>
+        <p>&copy; 2026 Gurrala Kishore Kumar</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>CSS Positioning</h1>
+
+    <p>The <code>position</code> property decides how an element is placed on the page.</p>
+
+    <h2>1. position: static (the default)</h2>
+
+    <p>Every element starts as <code>static</code>. It flows normally in the document, and
+       <code>top</code> / <code>left</code> do nothing.</p>
+
+    <div class="demo-box static-box">static &mdash; flows normally</div>
+    <div class="demo-box static-box">second static box</div>
+
+    <h2>2. position: relative</h2>
+
+    <p>The element stays in its normal flow, but it can be <strong>shifted</strong> using top/left/right/bottom.
+       Other elements do <em>not</em> move to fill the gap.</p>
+
+    <div class="demo-box relative-box">
+        relative &mdash; moved 20px right and 20px down
+    </div>
+    <p>The paragraph below did not move up into the gap.</p>
+
+    <h2>3. position: absolute</h2>
+
+    <p>An absolute element is taken out of the normal flow. It is positioned relative to its
+       nearest positioned ancestor (or the page if none exists).</p>
+
+    <h3>a) absolute inside a relative parent</h3>
+    <div class="relative-parent">
+        <div class="demo-box absolute-box">absolute (top-right of the grey box)</div>
+    </div>
+
+    <h3>b) absolute badge on a card</h3>
+    <div class="badge-parent">
+        <div class="card">Product Card</div>
+        <span class="badge">NEW</span>
+    </div>
+
+    <h2>4. position: fixed</h2>
+
+    <p>A fixed element stays in the same place on the screen even when you scroll.
+       Notice the button in the bottom-right corner &mdash; scroll down and it does not move.</p>
+
+    <button class="fixed-btn">I am fixed</button>
+
+    <h2>5. position: sticky</h2>
+
+    <p>A sticky element scrolls normally, but it "sticks" to a position once you scroll past it.</p>
+
+    <div class="sticky-header">Sticky header &mdash; scroll down and I stay at the top</div>
+
+    <p style="height: 400px; background-color: #f8f9fa; border: 1px dashed #adb5bd; padding: 15px;">
+        Scroll down to see the sticky header in action. This box is 400px tall to give you space to scroll.
+    </p>
+
+    <h2>6. Quick Reference</h2>
+
+    <table border="1" cellpadding="8" width="100%">
+        <tr>
+            <th>Value</th>
+            <th>In normal flow?</th>
+            <th>Reference point</th>
+            <th>Use it for</th>
+        </tr>
+        <tr>
+            <td><code>static</code></td>
+            <td>Yes</td>
+            <td>&mdash;</td>
+            <td>The default</td>
+        </tr>
+        <tr>
+            <td><code>relative</code></td>
+            <td>Yes</td>
+            <td>Its normal position</td>
+            <td>Small shifts, hover effects</td>
+        </tr>
+        <tr>
+            <td><code>absolute</code></td>
+            <td>No</td>
+            <td>Nearest positioned ancestor</td>
+            <td>Badges, tooltips, dropdowns</td>
+        </tr>
+        <tr>
+            <td><code>fixed</code></td>
+            <td>No</td>
+            <td>The viewport (screen)</td>
+            <td>Sticky navbars, chat buttons</td>
+        </tr>
+        <tr>
+            <td><code>sticky</code></td>
+            <td>Yes</td>
+            <td>Its normal position</td>
+            <td>Section headers, table headers</td>
+        </tr>
+    </table>
+
+</body>
+</html>

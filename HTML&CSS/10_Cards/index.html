@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Building Cards with CSS</h1>
+
+    <p>A card is a container with a border, some padding, rounded corners and usually a shadow.
+       Cards are used everywhere &mdash; product cards, profile cards, article cards.</p>
+
+    <h2>1. Basic Card</h2>
+
+    <div class="card">
+        <h3>Card Title</h3>
+        <p>This is a simple card. It has a white background, a border, rounded corners and padding.</p>
+        <a href="#">Read more</a>
+    </div>
+
+    <h2>2. Profile Card</h2>
+
+    <div class="profile-card">
+        <img class="card-avatar" src="https://via.placeholder.com/100x100/6366F1/ffffff?text=KG" alt="Profile photo">
+        <h3>Gurrala Kishore Kumar</h3>
+        <p class="role">CSE Student</p>
+        <p>Learning Front-End development one step at a time.</p>
+        <div class="social">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <button class="follow-btn">Follow</button>
+    </div>
+
+    <h2>3. Product Cards in a Grid</h2>
+
+    <div class="card-grid">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x150/0ea5e9/ffffff?text=Product+1" alt="Product 1">
+            <div class="product-body">
+                <h3>Wireless Headphones</h3>
+                <p>Clear sound and long battery life.</p>
+                <div class="product-footer">
+                    <span class="price">&#8377;1499</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x150/8b5cf6/ffffff?text=Product+2" alt="Product 2">
+            <div class="product-body">
+                <h3>Mechanical Keyboard</h3>
+                <p>Tactile switches with backlight.</p>
+                <div class="product-footer">
+                    <span class="price">&#8377;2999</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x150/198754/ffffff?text=Product+3" alt="Product 3">
+            <div class="product-body">
+                <h3>Gaming Mouse</h3>
+                <p>High DPI sensor and RGB lights.</p>
+                <div class="product-footer">
+                    <span class="price">&#8377;799</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>4. Card with a Top Coloured Border</h2>
+
+    <div class="card border-top-card">
+        <h3>HTML</h3>
+        <p>The structure of a web page.</p>
+    </div>
+    <div class="card border-top-card css-card">
+        <h3>CSS</h3>
+        <p>How a web page looks.</p>
+    </div>
+    <div class="card border-top-card js-card">
+        <h3>JavaScript</h3>
+        <p>How a web page behaves.</p>
+    </div>
+
+    <h2>5. Card with a Hover Effect</h2>
+
+    <div class="card hover-card">
+        <h3>Hover over me</h3>
+        <p>This card moves up and shows a stronger shadow when the mouse goes over it.</p>
+    </div>
+
+    <h2>6. Article / Blog Card</h2>
+
+    <article class="article-card">
+        <p class="article-date">10 Jan 2026</p>
+        <h3>What I Learned About Flexbox This Week</h3>
+        <p>
+            Flexbox makes it much easier to align elements in a row or a column without
+            using floats or manual margins. The two properties I use the most are
+            <code>justify-content</code> and <code>align-items</code>.
+        </p>
+        <div class="article-footer">
+            <span class="tag">CSS</span>
+            <span class="tag">Layout</span>
+        </div>
+    </article>
+
+    <h2>Important CSS for Cards</h2>
+    <ul>
+        <li><code>border-radius: 12px</code> &mdash; rounded corners</li>
+        <li><code>box-shadow: 0 4px 10px rgba(0,0,0,0.1)</code> &mdash; a soft shadow</li>
+        <li><code>padding: 20px</code> &mdash; space between the border and the content</li>
+        <li><code>overflow: hidden</code> &mdash; keeps a top image inside the rounded corners</li>
+        <li><code>transition</code> &mdash; makes a hover effect smooth instead of sudden</li>
+    </ul>
+
+</body>
+</html>

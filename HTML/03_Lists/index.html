@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+</head>
+<body>
+
+    <h1>Lists in HTML</h1>
+
+    <p>Lists are used to group related items. There are two main types.</p>
+
+    <h2>1. Unordered List (bullets)</h2>
+
+    <!-- <ul> = unordered list. The order of items does not matter. -->
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <h2>2. Ordered List (numbers)</h2>
+
+    <!-- <ol> = ordered list. Use it when the order matters, like steps. -->
+    <ol>
+        <li>Open the HTML file in a browser</li>
+        <li>Write your code inside the body</li>
+        <li>Refresh the browser to see the result</li>
+    </ol>
+
+    <h2>Changing the Bullet Style</h2>
+
+    <ul>
+        <li>Default bullet (disc)</li>
+        <li style="list-style-type: circle;">Circle style</li>
+        <li style="list-style-type: square;">Square style</li>
+        <li style="list-style-type: none;">No bullet (style set inline)</li>
+    </ul>
+
+    <h2>Nested Lists</h2>
+
+    <!-- A list can contain another list inside an <li>. -->
+    <ul>
+        <li>Front-End
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </li>
+        <li>Back-End
+            <ul>
+                <li>Node.js</li>
+                <li>Express.js</li>
+                <li>MongoDB</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>List with a Description</h2>
+
+    <!-- <dl> = description list. Good for definitions and key-value pairs. -->
+    <dl>
+        <dt>HTML</dt>
+        <dd>Provides the structure of a web page.</dd>
+
+        <dt>CSS</dt>
+        <dd>Controls how the page looks.</dd>
+
+        <dt>JavaScript</dt>
+        <dd>Makes the page interactive.</dd>
+    </dl>
+
+</body>
+</html>

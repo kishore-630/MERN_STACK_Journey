@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #6f42c1;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .note { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 12px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+    <h1>12. Promises and Async/Await</h1>
+
+    <p>A <strong>Promise</strong> is an object that represents a value that is not ready yet.
+       It will be either <strong>fulfilled</strong> (it worked) or <strong>rejected</strong> (it failed).</p>
+
+    <h2>The three states of a Promise</h2>
+    <ul>
+        <li><strong>pending</strong> &mdash; still working</li>
+        <li><strong>fulfilled</strong> &mdash; finished successfully</li>
+        <li><strong>rejected</strong> &mdash; finished with an error</li>
+    </ul>
+
+    <h2>1. Creating a Promise</h2>
+    <pre>new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        resolve("the data");
+    }, 1000);
+});</pre>
+
+    <h2>2. Using a Promise (.then / .catch)</h2>
+    <ul>
+        <li><code>.then(value =&gt; {})</code> &mdash; runs when it succeeds</li>
+        <li><code>.catch(error =&gt; {})</code> &mdash; runs when it fails</li>
+        <li><code>.finally(() =&gt; {})</code> &mdash; runs either way</li>
+    </ul>
+
+    <h2>3. Callbacks vs Promises</h2>
+    <p>A callback is a function passed to another function.
+       Promises give you the same result but with cleaner syntax and real error handling.</p>
+
+    <h2>4. Promise.all, race and chaining</h2>
+    <ul>
+        <li><code>Promise.all([...])</code> &mdash; wait for ALL to finish</li>
+        <li><code>Promise.race([...])</code> &mdash; use the FIRST one to finish</li>
+        <li><code>.then().then()</code> &mdash; chaining, one step after the other</li>
+    </ul>
+
+    <h2>5. async / await</h2>
+    <p>An <code>async</code> function always returns a Promise. Inside it,
+       <code>await</code> pauses the function until a Promise finishes &mdash;
+       without needing <code>.then()</code>.</p>
+    <pre>async function getData() {
+    try {
+        const value = await somePromise();
+        // runs after the promise finishes
+    } catch (error) {
+        // runs if it failed
+    }
+}</pre>
+
+    <p class="note"><strong>Why does this matter?</strong> Anything that takes time
+       (loading data from a server, a timer, reading a file) is asynchronous.
+       Promises and async/await are how JavaScript waits for it without freezing the page.</p>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

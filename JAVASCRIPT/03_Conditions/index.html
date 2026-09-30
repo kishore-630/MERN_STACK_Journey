@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #198754;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+        .note { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 12px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+    <h1>3. Conditions (if / else)</h1>
+
+    <p>Conditions let your code make decisions. The value being checked is called a
+       <strong>condition</strong>, and it must be <code>true</code> or <code>false</code>.</p>
+
+    <h2>1. if</h2>
+    <p>Runs the block only when the condition is true.</p>
+    <pre>if (condition) {
+    // this runs only if condition is true
+}</pre>
+
+    <h2>2. if ... else</h2>
+    <p>Runs one block or the other &mdash; never both.</p>
+
+    <h2>3. else if</h2>
+    <p>Used when you need to check more than two possibilities.
+       The <strong>first</strong> matching condition wins, so order matters.</p>
+
+    <h2>4. switch</h2>
+    <p>Useful when you are comparing <strong>one variable</strong> against many fixed values.</p>
+    <pre>switch (day) {
+    case "Monday": ...
+    case "Tuesday": ...
+    default: ...   // runs if nothing matched
+}</pre>
+
+    <p class="note"><strong>Remember:</strong> always use <code>===</code> (three equals) instead of
+       <code>==</code> when comparing.</p>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>CSS Grid</h1>
+
+    <p>Grid is a <strong>two-dimensional</strong> layout system. It arranges items in <em>rows and columns</em> at the same time.</p>
+
+    <h2>1. Basic Grid</h2>
+
+    <!-- display: grid turns the element into a grid container -->
+    <div class="grid">
+        <div class="cell">1</div>
+        <div class="cell">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+        <div class="cell">5</div>
+        <div class="cell">6</div>
+    </div>
+
+    <h2>2. grid-template-columns</h2>
+
+    <h3>Three equal columns</h3>
+    <div class="grid three-cols">
+        <div class="cell">A</div><div class="cell">B</div><div class="cell">C</div>
+    </div>
+
+    <h3>Fixed width columns</h3>
+    <div class="grid fixed-cols">
+        <div class="cell">A</div><div class="cell">B</div><div class="cell">C</div>
+    </div>
+
+    <h3>Fractions (1fr, 2fr)</h3>
+    <div class="grid fr-cols">
+        <div class="cell">1fr</div><div class="cell">1fr</div><div class="cell">2fr</div>
+    </div>
+
+    <h2>3. repeat() and auto-fit</h2>
+
+    <p>This is the most useful Grid pattern for a responsive page.
+       The number of columns changes automatically based on the screen width &mdash; with no media queries.</p>
+
+    <div class="grid auto-grid">
+        <div class="cell">Card</div>
+        <div class="cell">Card</div>
+        <div class="cell">Card</div>
+        <div class="cell">Card</div>
+        <div class="cell">Card</div>
+        <div class="cell">Card</div>
+    </div>
+
+    <h2>4. Spanning Columns and Rows</h2>
+
+    <div class="grid span-demo">
+        <!-- spans 2 columns -->
+        <div class="cell wide">Header (spans 2 columns)</div>
+        <div class="cell">Side</div>
+        <!-- spans 2 columns and 2 rows -->
+        <div class="cell tall-cell">Main (spans 2 columns and 2 rows)</div>
+        <div class="cell">Box 4</div>
+        <div class="cell">Box 5</div>
+    </div>
+
+    <h2>5. gap</h2>
+
+    <div class="grid three-cols gap-grid">
+        <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div>
+        <div class="cell">4</div><div class="cell">5</div><div class="cell">6</div>
+    </div>
+
+    <h2>6. Flexbox vs Grid</h2>
+
+    <table border="1" cellpadding="8" width="100%">
+        <tr>
+            <th></th>
+            <th>Flexbox</th>
+            <th>Grid</th>
+        </tr>
+        <tr>
+            <th>Direction</th>
+            <td>One dimension (row OR column)</td>
+            <td>Two dimensions (rows AND columns)</td>
+        </tr>
+        <tr>
+            <th>Best for</th>
+            <td>Navigation bars, button groups, centering</td>
+            <td>Page layouts, dashboards, card galleries</td>
+        </tr>
+    </table>
+
+    <h2>7. Practical Example: Dashboard Layout</h2>
+
+    <div class="dashboard">
+        <div class="dash-header">My Dashboard</div>
+        <div class="dash-nav">Navigation</div>
+        <div class="dash-main">Main Content</div>
+        <div class="dash-side">Sidebar</div>
+    </div>
+
+</body>
+</html>

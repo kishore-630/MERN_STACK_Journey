@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>The CSS Box Model</h1>
+
+    <p>Every element on a page is a box. Understanding this box is the key to CSS layout.</p>
+
+    <div class="diagram">
+        <div class="layer margin">margin (outside the border)</div>
+        <div class="layer border">border</div>
+        <div class="layer padding">padding (space inside the border)</div>
+        <div class="layer content">content</div>
+    </div>
+
+    <h2>Width and Height</h2>
+
+    <p>The <code>width</code> and <code>height</code> set the size of the <strong>content</strong> area only
+       (unless <code>box-sizing</code> is changed).</p>
+
+    <div class="size-box">This box is 200px wide and 80px tall (content area).</div>
+
+    <h2>box-sizing: border-box (recommended)</h2>
+
+    <p>By default CSS uses <code>content-box</code>, which means padding and border are <strong>added</strong> to the size.
+       Using <code>border-box</code> makes padding and border <strong>included</strong> in the size instead.</p>
+
+    <div class="same-width border-box-demo">
+        With <code>box-sizing: border-box</code> &mdash; total width stays 300px even with padding and border.
+    </div>
+
+    <div class="same-width content-box-demo">
+        With <code>box-sizing: content-box</code> &mdash; total width becomes 300px + 40px padding + 6px border.
+    </div>
+
+    <h2>Border</h2>
+
+    <p>Border can have a style, a width and a color.</p>
+
+    <div class="border-solid">solid border</div>
+    <div class="border-dashed">dashed border</div>
+    <div class="border-dotted">dotted border</div>
+    <div class="border-double">double border</div>
+    <div class="border-none">border: none</div>
+
+    <h2>Min-Width, Max-Width and Overflow</h2>
+
+    <div class="limited">
+        This box has max-width: 400px, so it never grows wider than 400px even on a large screen.
+    </div>
+
+    <h2>Common Box Model Fix</h2>
+
+    <p>Most developers add this small reset at the top of a stylesheet:</p>
+
+    <pre>* {
+    box-sizing: border-box;
+}</pre>
+
+    <p>It makes every element include padding and border inside its declared width,
+       which makes layouts much easier to control.</p>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #8b5cf6;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>2. Operators</h1>
+
+    <p>Operators are symbols that perform operations on values.</p>
+
+    <h2>1. Arithmetic Operators</h2>
+    <table border="1" cellpadding="8" width="100%">
+        <tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr>
+        <tr><td><code>+</code></td><td>Add</td><td><code>10 + 5</code></td><td>15</td></tr>
+        <tr><td><code>-</code></td><td>Subtract</td><td><code>10 - 5</code></td><td>5</td></tr>
+        <tr><td><code>*</code></td><td>Multiply</td><td><code>10 * 5</code></td><td>50</td></tr>
+        <tr><td><code>/</code></td><td>Divide</td><td><code>10 / 5</code></td><td>2</td></tr>
+        <tr><td><code>%</code></td><td>Remainder (modulus)</td><td><code>10 % 3</code></td><td>1</td></tr>
+        <tr><td><code>**</code></td><td>Power</td><td><code>2 ** 3</code></td><td>8</td></tr>
+    </table>
+
+    <p><strong>Important:</strong> <code>%</code> is very useful &mdash; it tells you if a number is
+       even or odd, or which day of the week it is.</p>
+
+    <h2>2. Assignment Operators</h2>
+    <ul>
+        <li><code>=</code> assign, <code>+=</code> add and assign, <code>-=</code> subtract and assign</li>
+        <li><code>*=</code>, <code>/=</code>, <code>%=</code> work the same way</li>
+    </ul>
+
+    <h2>3. Comparison Operators</h2>
+    <ul>
+        <li><code>==</code> loose equal (compares value only)</li>
+        <li><code>===</code> strict equal (compares value AND type) &mdash; <strong>prefer this one</strong></li>
+        <li><code>!=</code> and <code>!==</code> not equal</li>
+        <li><code>&gt;</code> &nbsp;<code>&lt;</code> &nbsp;<code>&gt;=</code> &nbsp;<code>&lt;=</code></li>
+    </ul>
+
+    <h2>4. Logical Operators</h2>
+    <ul>
+        <li><code>&amp;&amp;</code> AND &mdash; true when BOTH sides are true</li>
+        <li><code>||</code> OR &mdash; true when AT LEAST ONE side is true</li>
+        <li><code>!</code> NOT &mdash; flips true to false and false to true</li>
+    </ul>
+
+    <h2>5. Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

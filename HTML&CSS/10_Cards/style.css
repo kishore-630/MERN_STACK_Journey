@@ -1,0 +1,221 @@
+/* =========================================
+   CARDS - Simple Examples
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+h1,
+h2 {
+    color: #212529;
+    margin-top: 30px;
+}
+
+/* --- 1. BASIC CARD ---
+   Every card uses the same four ingredients:
+   background, border, border-radius, box-shadow */
+
+.card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    /* rounded corners */
+    border-radius: 12px;
+    /* offset-x offset-y blur spread color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* max-width keeps the card from stretching across a big screen */
+    max-width: 380px;
+    margin-bottom: 15px;
+}
+
+.card a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* --- 2. PROFILE CARD --- */
+
+.profile-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    max-width: 280px;
+    margin-bottom: 20px;
+    /* centers all the text inside the card */
+    text-align: center;
+}
+
+.card-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* 4px border in the card's own background colour creates a ring effect */
+    border: 4px solid #f1f3f5;
+}
+
+.role {
+    color: #6c757d;
+    font-size: 14px;
+    margin-top: -8px;
+}
+
+.social {
+    margin: 12px 0;
+}
+
+.social a {
+    color: #0d6efd;
+    text-decoration: none;
+    margin: 0 6px;
+    font-size: 14px;
+}
+
+.follow-btn {
+    width: 100%;
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.follow-btn:hover {
+    background-color: #0a58ca;
+}
+
+/* --- 3. PRODUCT CARDS IN A GRID --- */
+
+/* auto-fit + minmax makes the columns change automatically with the screen size,
+   so this needs no media queries at all. */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    /* hides the image corners so they do not stick out past the rounded card */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* transition makes the hover change smooth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.product-card img {
+    width: 100%;
+    display: block;
+}
+
+.product-body {
+    padding: 15px;
+}
+
+.product-footer {
+    /* Flexbox puts the price on the left and the button on the right */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+    color: #198754;
+}
+
+.add-btn {
+    background-color: #198754;
+    color: #fff;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.add-btn:hover {
+    background-color: #146c43;
+}
+
+/* --- 4. TOP COLOURED BORDER --- */
+
+.border-top-card {
+    /* a thick border only on the top side */
+    border-top: 5px solid #0d6efd;
+}
+
+.css-card {
+    border-top-color: #8b5cf6;
+}
+
+.js-card {
+    border-top-color: #ffc107;
+}
+
+/* --- 5. HOVER EFFECT --- */
+
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 6. ARTICLE CARD --- */
+
+.article-card {
+    background-color: #fff;
+    border-left: 5px solid #0d6efd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.article-date {
+    color: #6c757d;
+    font-size: 13px;
+    margin: 0;
+}
+
+.article-footer {
+    margin-top: 12px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-right: 5px;
+}

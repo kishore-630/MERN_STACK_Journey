@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>7. Objects</h1>
+
+    <p>An object stores related values together as <strong>key-value pairs</strong>.</p>
+    <pre>let student = {
+    name: "Kishore",
+    age: 21
+};</pre>
+
+    <h2>1. Key-Value Rules</h2>
+    <ul>
+        <li>Keys and values are separated by a <code>:</code> (colon)</li>
+        <li>Each pair is separated by a <code>,</code> (comma)</li>
+        <li>Keys are always in quotes unless they are a single word</li>
+    </ul>
+
+    <h2>2. Accessing Values</h2>
+    <ul>
+        <li><code>student.name</code> &mdash; dot notation (most common)</li>
+        <li><code>student["name"]</code> &mdash; bracket notation (needed for keys with spaces)</li>
+    </ul>
+
+    <h2>3. Useful Object Methods</h2>
+    <ul>
+        <li><code>Object.keys(obj)</code> &mdash; all the keys</li>
+        <li><code>Object.values(obj)</code> &mdash; all the values</li>
+        <li><code>Object.entries(obj)</code> &mdash; all key-value pairs</li>
+    </ul>
+
+    <h2>4. Destructuring</h2>
+    <p>A short way to take values out of an object into separate variables.</p>
+    <pre>const { name, age } = student;</pre>
+
+    <h2>5. Spread Operator</h2>
+    <p>Used to copy an object or merge objects together.</p>
+
+    <h2>6. Nested Objects and Arrays</h2>
+
+    <h2>7. this Keyword</h2>
+    <p>Inside an object method, <code>this</code> refers to the object itself.</p>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

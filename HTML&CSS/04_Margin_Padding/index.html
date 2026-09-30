@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin and Padding</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Margin and Padding</h1>
+
+    <p><strong>Padding</strong> is the space <em>inside</em> the border, between the border and the content.</p>
+    <p><strong>Margin</strong> is the space <em>outside</em> the border, between this element and other elements.</p>
+
+    <div class="demo outer">
+        MARGIN (outside the border)
+        <div class="demo border">BORDER
+            <div class="demo padding">PADDING (inside)
+                <div class="demo content">CONTENT</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>1. Padding - All Four Sides</h2>
+
+    <div class="p-all">padding: 25px</div>
+    <div class="p-sides">padding: 25px 50px (top-bottom, left-right)</div>
+    <div class="p-specific">padding: 10px 20px 30px 40px (top, right, bottom, left)</div>
+
+    <h2>2. Margin - All Four Sides</h2>
+
+    <div class="m-all">margin: 25px</div>
+    <div class="m-sides">margin: 25px 50px</div>
+    <div class="m-specific">margin: 10px 20px 30px 40px</div>
+
+    <h2>3. Auto Centering</h2>
+
+    <!-- margin: 0 auto centers a block element horizontally -->
+    <div class="centered">I am centered using margin: 0 auto;</div>
+
+    <h2>4. Collapsing Margins</h2>
+
+    <p>When two blocks have margins, the browser uses the <strong>larger</strong> one instead of adding them.
+       This is called margin collapsing.</p>
+
+    <div class="collapse">Block A &mdash; margin-bottom: 40px</div>
+    <div class="collapse">Block B &mdash; margin-top: 20px (40px is used, not 60px)</div>
+
+    <h2>5. Practical Example: Spacing Between Cards</h2>
+
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+
+    <h2>6. Negative Margin</h2>
+
+    <div class="negative-margin-box">
+        <p>This paragraph is pulled 20px to the left using a negative margin.</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links and Images</title>
+</head>
+<body>
+
+    <h1>Links and Images</h1>
+
+    <h2>Links</h2>
+
+    <p>Links are created with the <code>&lt;a&gt;</code> tag. The <code>href</code> attribute holds the destination.</p>
+
+    <!-- 1. External link -->
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">MDN HTML Documentation</a></p>
+
+    <!-- target="_blank" opens the link in a new tab.
+         rel="noopener" is a safety habit when using target="_blank". -->
+
+    <!-- 2. Link to another page in the same folder -->
+    <p><a href="../03_Lists/index.html">Go to the Lists example</a></p>
+
+    <!-- 3. Link to a section on THIS page (anchor link) -->
+    <p><a href="#images">Jump to the Images part of this page</a></p>
+
+    <h2 id="images">Images</h2>
+
+    <p>Images use the <code>&lt;img&gt;</code> tag. It is an empty tag, so it has no closing tag.</p>
+
+    <!-- The alt attribute describes the image.
+         It is important for accessibility and shows if the image fails to load. -->
+
+    <!-- width and height are given in pixels to control the display size -->
+    <p>
+        <img
+            src="https://via.placeholder.com/300x150/0EA5E9/ffffff?text=Sample+Image"
+            alt="A sample placeholder image"
+            width="300"
+            height="150">
+    </p>
+
+    <h3>What if the image is missing?</h3>
+
+    <p>The <code>alt</code> text is what the browser shows when an image cannot load:</p>
+
+    <img src="wrong-link.jpg" alt="This text appears because the image did not load" width="300" height="120">
+
+    <h2>Image inside a Link</h2>
+
+    <a href="https://www.wikipedia.org" target="_blank" rel="noopener">
+        <img
+            src="https://via.placeholder.com/200x60/6366F1/ffffff?text=Click+Me"
+            alt="Click this banner to open Wikipedia"
+            width="200"
+            height="60">
+    </a>
+
+    <p>Note: this example uses an online placeholder image, so it needs an internet connection.</p>
+
+</body>
+</html>

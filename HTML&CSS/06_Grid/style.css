@@ -1,0 +1,143 @@
+/* =========================================
+   CSS GRID - Simple Examples
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    color: #212529;
+}
+
+/* --- THE MAIN CLASS ---
+   display: grid turns this element into a grid container.
+   Its direct children are placed into the grid cells. */
+.grid {
+    display: grid;
+    /* 3 equal columns, rows grow as needed */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: #f1f3f5;
+    border: 2px dashed #6c757d;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 14px;
+}
+
+.cell {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --- COLUMN TEMPLATES --- */
+
+/* named columns with different widths */
+.three-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* fixed pixel widths - these do NOT respond to screen size */
+.fixed-cols {
+    grid-template-columns: 150px 150px 150px;
+}
+
+/* fr means "fraction" of the available space.
+   1fr 1fr 2fr means the third column is twice as wide. */
+.fr-cols {
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+/* --- AUTO-FIT RESPONSIVE GRID (no media queries needed) ---
+   repeat(auto-fit, minmax(250px, 1fr)) means:
+   "create as many 250px-wide columns as fit.
+    If they cannot fit, shrink them and share the space." */
+.auto-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* --- SPANNING --- */
+.span-demo {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 70px;
+}
+
+/* span 2 columns */
+.wide {
+    grid-column: span 2;
+}
+
+/* span 2 columns and 2 rows */
+.tall-cell {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* --- GAP --- */
+.gap-grid {
+    gap: 20px;
+}
+
+/* --- PRACTICAL: DASHBOARD --- */
+
+.dashboard {
+    display: grid;
+    /* two columns: narrow side, wide main */
+    grid-template-columns: 180px 1fr;
+    /* rows: header, then content */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header header"
+        "nav    main";
+    gap: 10px;
+    max-width: 700px;
+}
+
+/* grid-area lets each child be placed by name instead of by line numbers */
+.dash-header {
+    grid-area: header;
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dash-nav {
+    grid-area: nav;
+    background-color: #6c757d;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.dash-main {
+    grid-area: main;
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 150px;
+}
+
+.dash-side {
+    grid-area: main;
+    background-color: #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+    align-self: start;
+    display: none;
+}

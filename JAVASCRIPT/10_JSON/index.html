@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #20c997;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>10. JSON</h1>
+
+    <p><strong>JSON</strong> = JavaScript Object Notation. It is a text format for sending and
+       storing data. It looks almost exactly like a JavaScript object, but it is a
+       <em>string</em>, not an object.</p>
+
+    <h2>Rules of JSON</h2>
+    <ul>
+        <li>Keys <strong>must</strong> be in double quotes: <code>{"name": "Kishore"}</code></li>
+        <li>Values can be: string, number, boolean, null, array, object</li>
+        <li>No trailing comma at the end</li>
+        <li>No comments allowed</li>
+        <li>Single quotes are NOT allowed &mdash; always use double quotes</li>
+    </ul>
+
+    <h2>Two Functions You Need</h2>
+    <table border="1" cellpadding="8" width="100%">
+        <tr><th>Function</th><th>Direction</th><th>Result</th></tr>
+        <tr><td><code>JSON.stringify(object)</code></td><td>JavaScript &rarr; JSON text</td><td>a string</td></tr>
+        <tr><td><code>JSON.parse(jsonText)</code></td><td>JSON text &rarr; JavaScript</td><td>an object</td></tr>
+    </table>
+
+    <h2>When is JSON used?</h2>
+    <p>Whenever data is sent to a server or received from a server.
+       When you call an API, the response you get back is almost always JSON.</p>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

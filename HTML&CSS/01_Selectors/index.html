@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>CSS Selectors</h1>
+
+    <p>A selector chooses which HTML element(s) the CSS style will be applied to.</p>
+
+    <h2>1. Element Selector</h2>
+
+    <!-- style.css:  p { ... }  -->
+    <p>This paragraph uses the element selector <code>p</code>.</p>
+    <p>Every paragraph on the page is styled the same way.</p>
+
+    <h2>2. Class Selector (most used)</h2>
+
+    <!-- style.css:  .highlight { ... }  -->
+    <p class="highlight">This paragraph has class="highlight", so it is highlighted.</p>
+    <p>This paragraph has no class, so it is normal.</p>
+
+    <h3>A class can be reused many times</h3>
+    <p class="highlight">First highlighted paragraph.</p>
+    <p class="highlight">Second highlighted paragraph.</p>
+
+    <h2>3. ID Selector</h2>
+
+    <!-- style.css:  #unique-title { ... }  -->
+    <h3 id="unique-title">This heading uses an ID</h3>
+    <p>An ID must be <strong>unique</strong> on the page, so it is used for one element only.</p>
+
+    <h2>4. Grouping Selector</h2>
+
+    <!-- style.css:  h1, h2, p { ... }  -->
+    <p>Grouping means applying the same style to several selectors at once (comma separated).</p>
+
+    <h2>5. Descendant Selector</h2>
+
+    <!-- style.css:  .box p { ... }  -->
+    <div class="box">
+        <p>This paragraph is inside a div with class="box", so it gets the special style.</p>
+    </div>
+    <p>This paragraph is outside the box, so it is normal.</p>
+
+    <h2>6. Child and Adjacent Selectors</h2>
+
+    <div class="list-demo">
+        <!-- style.css:  .list-demo > p  and  h2 + p -->
+        <p>This is the first child of the div (direct child).</p>
+        <p>Second child.</p>
+    </div>
+
+    <h3>Combinators explained</h3>
+    <ul>
+        <li><code>.box p</code> &mdash; any paragraph inside .box (descendant)</li>
+        <li><code>.list-demo &gt; p</code> &mdash; only a direct child paragraph (child)</li>
+        <li><code>h2 + p</code> &mdash; the paragraph right after an h2 (adjacent sibling)</li>
+    </ul>
+
+</body>
+</html>

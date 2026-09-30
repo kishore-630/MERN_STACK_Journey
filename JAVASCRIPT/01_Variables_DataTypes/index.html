@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables and Data Types</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        /* #output is where script.js will print the result */
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #0d6efd;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+        .note { background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 12px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+    <h1>1. Variables and Data Types</h1>
+
+    <p>JavaScript has three ways to create a variable: <code>var</code>, <code>let</code> and <code>const</code>.
+       In modern JavaScript, always use <code>let</code> and <code>const</code>.</p>
+
+    <table border="1" cellpadding="8" width="100%">
+        <tr>
+            <th>Keyword</th>
+            <th>Can the value change?</th>
+            <th>Scope</th>
+        </tr>
+        <tr>
+            <td><code>var</code></td>
+            <td>Yes</td>
+            <td>Function (old, avoid it)</td>
+        </tr>
+        <tr>
+            <td><code>let</code></td>
+            <td>Yes</td>
+            <td>Block <code>{ }</code></td>
+        </tr>
+        <tr>
+            <td><code>const</code></td>
+            <td>No (cannot be reassigned)</td>
+            <td>Block <code>{ }</code></td>
+        </tr>
+    </table>
+
+    <h2>Data Types</h2>
+    <ul>
+        <li><strong>String</strong> &mdash; text, written in quotes: <code>"hello"</code></li>
+        <li><strong>Number</strong> &mdash; whole numbers and decimals: <code>25</code>, <code>3.14</code></li>
+        <li><strong>Boolean</strong> &mdash; only two values: <code>true</code> or <code>false</code></li>
+        <li><strong>Undefined</strong> &mdash; a variable that has no value yet</li>
+        <li><strong>Null</strong> &mdash; intentionally "no value"</li>
+        <li><strong>Object</strong> &mdash; a collection of key-value pairs</li>
+        <li><strong>Array</strong> &mdash; an ordered list of values</li>
+    </ul>
+
+    <p class="note"><strong>Note:</strong> <code>typeof</code> is used to find the data type of a value.</p>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <p>Open the browser console (press <code>F12</code>) to see the same values printed with <code>console.log()</code>.</p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

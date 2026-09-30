@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 30px; line-height: 1.6; }
+        h1 { color: #212529; }
+        #output {
+            background-color: #f1f3f5;
+            border-left: 5px solid #d63384;
+            padding: 15px;
+            border-radius: 6px;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>4. Loops</h1>
+
+    <p>Loops repeat a block of code many times without writing it again and again.</p>
+
+    <h2>1. for loop</h2>
+    <p>Use when you know <strong>how many times</strong> to repeat.</p>
+    <pre>for (let i = 1; i &lt;= 5; i++) {
+    // start value; condition; change each time
+}</pre>
+
+    <h2>2. while loop</h2>
+    <p>Use when you do <strong>not know</strong> how many times to repeat.</p>
+    <pre>let i = 1;
+while (i &lt;= 5) {
+    i++;
+}</pre>
+
+    <h2>3. do...while loop</h2>
+    <p>Runs the body <strong>at least once</strong>, then checks the condition.</p>
+
+    <h2>4. for...of loop</h2>
+    <p>The easiest way to go through an <strong>array</strong>.</p>
+
+    <h2>5. for...in loop</h2>
+    <p>Goes through the <strong>keys</strong> (property names) of an object.</p>
+
+    <h2>6. break and continue</h2>
+    <ul>
+        <li><code>break</code> &mdash; stops the loop completely</li>
+        <li><code>continue</code> &mdash; skips to the next iteration</li>
+    </ul>
+
+    <h2>Output</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

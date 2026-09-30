@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+
+    <h1>Forms in HTML</h1>
+
+    <p>A form collects information from the user. It is created with the <code>&lt;form&gt;</code> tag.</p>
+
+    <!-- action = where the data should be sent (page or URL)
+         method = how to send it ("get" shows it in the URL, "post" sends it hidden) -->
+
+    <form>
+        <h2>1. Text Inputs</h2>
+
+        <!-- <label> is used with every input so the user knows what to type.
+             The "for" attribute must match the input's "id". -->
+
+        <p>
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your name">
+        </p>
+
+        <p>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+        </p>
+
+        <p>
+            <label for="password">Password:</label><br>
+            <!-- type="password" hides the text as you type -->
+            <input type="password" id="password" name="password" placeholder="Enter password">
+        </p>
+
+        <p>
+            <label for="age">Age:</label><br>
+            <!-- min and max limit the allowed values -->
+            <input type="number" id="age" name="age" min="1" max="100" placeholder="18">
+        </p>
+
+        <h2>2. Radio Buttons (choose ONE)</h2>
+
+        <!-- Radio buttons in the same group share the same "name" -->
+
+        <p>Gender:</p>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+
+        <h2>3. Checkboxes (choose MANY)</h2>
+
+        <p>Skills:</p>
+        <label><input type="checkbox" name="skills" value="html" checked> HTML</label>
+        <label><input type="checkbox" name="skills" value="css"> CSS</label>
+        <label><input type="checkbox" name="skills" value="js"> JavaScript</label>
+
+        <h2>4. Dropdown (Select)</h2>
+
+        <p>
+            <label for="course">Choose a course:</label><br>
+            <select id="course" name="course">
+                <!-- The first option can be the default / placeholder -->
+                <option value="">-- Select --</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JavaScript</option>
+            </select>
+        </p>
+
+        <h2>5. Textarea (long text)</h2>
+
+        <p>
+            <label for="message">Message:</label><br>
+            <!-- rows and cols control the visible size of the box -->
+            <textarea id="message" name="message" rows="4" cols="40" placeholder="Write your message here"></textarea>
+        </p>
+
+        <h2>6. Other Input Types</h2>
+
+        <p>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob">
+        </p>
+
+        <p>
+            <label for="color">Favourite colour:</label>
+            <input type="color" id="color" name="color">
+        </p>
+
+        <p>
+            <label for="file">Upload a file:</label>
+            <input type="file" id="file" name="file">
+        </p>
+
+        <hr>
+
+        <!-- required means the user cannot submit the form without filling it -->
+        <input type="submit" value="Register">
+        <input type="reset" value="Clear">
+
+    </form>
+
+    <p><strong>Note:</strong> This form is not connected to a server yet.
+       To handle it with code, see the <code>JAVASCRIPT/09_Events/</code> example.</p>
+
+</body>
+</html>

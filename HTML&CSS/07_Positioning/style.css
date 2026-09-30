@@ -1,0 +1,139 @@
+/* =========================================
+   POSITIONING - Simple Examples
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    line-height: 1.5;
+    /* this creates space at the bottom so the fixed button does not cover content */
+    padding-bottom: 120px;
+}
+
+h1,
+h2,
+h3 {
+    color: #212529;
+}
+
+.demo-box {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* --- 1. STATIC (DEFAULT) --- */
+
+/* No position property needed. The element flows normally.
+   Adding top/left here has no effect. */
+.static-box {
+    background-color: #6c757d;
+}
+
+/* --- 2. RELATIVE --- */
+
+/* Stays in the normal flow, but can be shifted.
+   The space it originally took is still reserved. */
+.relative-box {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background-color: #198754;
+}
+
+/* --- 3. ABSOLUTE --- */
+
+/* This parent is the reference point for the absolute child below.
+   A parent must be positioned for this to work predictably. */
+.relative-parent {
+    position: relative;
+    height: 200px;
+    background-color: #f1f3f5;
+    border: 2px dashed #6c757d;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* top and right are measured from the edges of .relative-parent */
+.absolute-box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #d63384;
+    margin: 0;
+}
+
+/* Badge on a card */
+.badge-parent {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.card {
+    background-color: #e9ecef;
+    border: 2px solid #adb5bd;
+    border-radius: 8px;
+    padding: 30px 40px;
+    font-weight: bold;
+}
+
+/* A small label placed in the top-right corner, overlapping the card */
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* --- 4. FIXED --- */
+
+/* Fixed elements are placed relative to the screen and ignore scrolling.
+   Always remember to add padding to the body so this does not cover content. */
+.fixed-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.fixed-btn:hover {
+    background-color: #0a58ca;
+}
+
+/* --- 5. STICKY --- */
+
+/* Sticky works only inside a scrolling container.
+   Here the page itself is the container.
+   top: 0 means it sticks to the top of the viewport. */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    z-index: 10;
+}

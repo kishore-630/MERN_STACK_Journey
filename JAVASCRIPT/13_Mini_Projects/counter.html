@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+
+        .counter-box {
+            background-color: #fff;
+            border: 2px solid #dee2e6;
+            border-radius: 14px;
+            padding: 30px 40px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 { color: #212529; margin-top: 0; }
+
+        /* This number is changed by JavaScript */
+        #count {
+            font-size: 70px;
+            font-weight: bold;
+            color: #0d6efd;
+            margin: 15px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            border: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #decrease { background-color: #dc3545; }
+        #increase { background-color: #198754; }
+        #reset    { background-color: #6c757d; }
+
+        button:hover { opacity: 0.85; }
+
+        p { color: #6c757d; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <h1>Counter Project</h1>
+
+    <div class="counter-box">
+        <p>Current value:</p>
+        <div id="count">0</div>
+
+        <div class="buttons">
+            <button id="decrease">- Decrease</button>
+            <button id="increase">+ Increase</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <p>Try it: click the buttons, or use the arrow keys on your keyboard.</p>
+
+    <script>
+        // Select the number display and the buttons
+        const countDisplay = document.getElementById("count");
+        const increaseBtn = document.getElementById("increase");
+        const decreaseBtn = document.getElementById("decrease");
+        const resetBtn = document.getElementById("reset");
+
+        // The current value is stored in a variable.
+        // "let" is used because the value changes.
+        let count = 0;
+
+        // This function writes the variable back into the HTML
+        function updateDisplay() {
+            countDisplay.textContent = count;
+        }
+
+        increaseBtn.addEventListener("click", function () {
+            count++;
+            updateDisplay();
+        });
+
+        decreaseBtn.addEventListener("click", function () {
+            count--;
+            updateDisplay();
+        });
+
+        resetBtn.addEventListener("click", function () {
+            count = 0;
+            updateDisplay();
+        });
+
+        // Keyboard support
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowUp") {
+                count++;
+                updateDisplay();
+            } else if (event.key === "ArrowDown") {
+                count--;
+                updateDisplay();
+            }
+        });
+    </script>
+
+</body>
+</html>
