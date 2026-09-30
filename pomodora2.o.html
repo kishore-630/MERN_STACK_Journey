@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FocusFlow - Pomodoro Timer</title>
+
+    <link rel="stylesheet" href="pomodora2.o.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                🍅 <span>FocusFlow</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#timer">Timer</a>
+                <a href="#tasks">Tasks</a>
+                <a href="#statistics">Statistics</a>
+            </div>
+
+            <button class="profile" type="button">
+                👤
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Timer Section -->
+        <section class="timer-section" id="timer">
+
+            <div class="intro">
+                <p class="section-label">TIME TO FOCUS</p>
+
+                <h1>Stay focused. Get things done.</h1>
+
+                <p>
+                    Use the Pomodoro technique to study smarter and take better breaks.
+                </p>
+            </div>
+
+
+            <!-- Timer Card -->
+            <div class="timer-card">
+
+                <div class="timer-modes">
+                    <button class="mode active" type="button">
+                        Focus
+                    </button>
+
+                    <button class="mode" type="button">
+                        Short Break
+                    </button>
+
+                    <button class="mode" type="button">
+                        Long Break
+                    </button>
+                </div>
+
+
+                <!-- Timer Circle -->
+                <div class="timer-circle">
+
+                    <div class="timer-content">
+
+                        <span class="timer-label">
+                            FOCUS TIME
+                        </span>
+
+                        <h2>25:00</h2>
+
+                        <p>
+                            Stay focused on your task
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Timer Buttons -->
+                <div class="timer-buttons">
+
+                    <button class="reset-btn" type="button">
+                        ↻ Reset
+                    </button>
+
+                    <button class="start-btn" type="button">
+                        ▶ Start
+                    </button>
+
+                    <button class="pause-btn" type="button">
+                        ⏸ Pause
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Current Session -->
+        <section class="session-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">
+                        CURRENT SESSION
+                    </p>
+
+                    <h2>
+                        What are you working on?
+                    </h2>
+                </div>
+
+                <span class="session-count">
+                    🔥 Session 3
+                </span>
+
+            </div>
+
+
+            <div class="current-task">
+
+                <div class="task-icon">
+                    💻
+                </div>
+
+                <div class="task-info">
+
+                    <p>Current Task</p>
+
+                    <h3>
+                        Learn HTML and CSS
+                    </h3>
+
+                    <span>
+                        Frontend Development
+                    </span>
+
+                </div>
+
+                <button class="edit-btn" type="button">
+                    ✏ Edit
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Today's Progress -->
+        <section class="progress-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">
+                        TODAY'S PROGRESS
+                    </p>
+
+                    <h2>
+                        Your Pomodoro sessions
+                    </h2>
+                </div>
+
+                <span class="progress-count">
+                    2 of 4 completed
+                </span>
+
+            </div>
+
+
+            <div class="progress-cards">
+
+                <!-- Session 1 -->
+                <div class="progress-card completed">
+
+                    <span class="session-number">
+                        ✓
+                    </span>
+
+                    <p>
+                        Session 1
+                    </p>
+
+                </div>
+
+
+                <!-- Session 2 -->
+                <div class="progress-card completed">
+
+                    <span class="session-number">
+                        ✓
+                    </span>
+
+                    <p>
+                        Session 2
+                    </p>
+
+                </div>
+
+
+                <!-- Session 3 -->
+                <div class="progress-card current">
+
+                    <span class="session-number">
+                        3
+                    </span>
+
+                    <p>
+                        Session 3
+                    </p>
+
+                </div>
+
+
+                <!-- Session 4 -->
+                <div class="progress-card">
+
+                    <span class="session-number">
+                        4
+                    </span>
+
+                    <p>
+                        Session 4
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Task List -->
+        <section class="task-section" id="tasks">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">
+                        TASK LIST
+                    </p>
+
+                    <h2>
+                        Today's tasks
+                    </h2>
+                </div>
+
+                <button class="add-task-btn" type="button">
+                    + Add Task
+                </button>
+
+            </div>
+
+
+            <div class="task-list">
+
+                <!-- Task 1 -->
+                <div class="task-item completed-task">
+
+                    <div class="task-left">
+
+                        <span class="checkbox checked">
+                            ✓
+                        </span>
+
+                        <div class="task-details">
+
+                            <h3>
+                                Revise HTML basics
+                            </h3>
+
+                            <p>
+                                30 minutes • High Priority
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <span class="priority high">
+                        High
+                    </span>
+
+                </div>
+
+
+                <!-- Task 2 -->
+                <div class="task-item">
+
+                    <div class="task-left">
+
+                        <span class="checkbox">
+                        </span>
+
+                        <div class="task-details">
+
+                            <h3>
+                                Practice CSS Flexbox
+                            </h3>
+
+                            <p>
+                                45 minutes • Medium Priority
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <span class="priority medium">
+                        Medium
+                    </span>
+
+                </div>
+
+
+                <!-- Task 3 -->
+                <div class="task-item">
+
+                    <div class="task-left">
+
+                        <span class="checkbox">
+                        </span>
+
+                        <div class="task-details">
+
+                            <h3>
+                                Complete CSS mini project
+                            </h3>
+
+                            <p>
+                                1 hour • High Priority
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <span class="priority high">
+                        High
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="statistics-section" id="statistics">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏱
+                </div>
+
+                <div>
+                    <p>Focus Time</p>
+                    <h3>2h 30m</h3>
+                    <span>Today</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🍅
+                </div>
+
+                <div>
+                    <p>Sessions Done</p>
+                    <h3>6</h3>
+                    <span>+2 from yesterday</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔥
+                </div>
+
+                <div>
+                    <p>Current Streak</p>
+                    <h3>7 days</h3>
+                    <span>Keep going!</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quote -->
+        <section class="quote-section">
+
+            <blockquote>
+                "Success is the sum of small efforts, repeated day in and day out."
+            </blockquote>
+
+            <p>
+                — Robert Collier
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 FocusFlow • Built for better focus 🍅
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

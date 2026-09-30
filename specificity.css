@@ -1,0 +1,31 @@
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:arail,helvetical;
+    color:darkblue;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.card{
+    width:400px;
+    padding:25px; 
+    margin:50px auto;
+    text-align:center;
+    border:1px  dashed black;
+    background:lightgreen;
+    
+}
+h1{
+    color:tomato;
+}
+h2{
+    color:blue;
+}
+.description{
+    color:yellow;
+}
+button{
+    padding:10px 20px;
+    font-size:19px;
+}

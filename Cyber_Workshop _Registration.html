@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Workshop Registration</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .participant {
+            border: 1px solid gray;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1 id="title">Workshop Registration</h1>
+
+    <form id="workshopForm">
+
+        <input
+            id="name"
+            type="text"
+            placeholder="Enter Participant Name"
+        >
+
+        <input
+            id="email"
+            type="email"
+            placeholder="Enter Email Address"
+        >
+
+        <select id="workshop">
+
+            <option value="">Select Workshop</option>
+
+            <option value="Cyber Security">Cyber Security</option>
+
+            <option value="Web Development">Web Development</option>
+
+            <option value="Data Science">Data Science</option>
+
+        </select>
+
+        <button type="submit">Register Now</button>
+
+    </form>
+
+    <div id="message"></div>
+
+    <div id="participantList"></div>
+
+
+    <script>
+
+        // GET ELEMENTS
+
+        const form = document.getElementById("workshopForm");
+
+        const nameInput = document.getElementById("name");
+
+        const emailInput = document.getElementById("email");
+
+        const workshopInput = document.getElementById("workshop");
+
+        const message = document.getElementById("message");
+
+        const participantList =
+            document.querySelector("#participantList");
+
+
+        // INPUT EVENT
+
+        nameInput.addEventListener("input", function(event) {
+
+            console.log("Typing:", event.target.value);
+
+        });
+
+
+        // CHANGE EVENT
+
+        workshopInput.addEventListener("change", function(event) {
+
+            console.log("Selected Workshop:", event.target.value);
+
+        });
+
+
+        // SUBMIT EVENT
+
+        form.addEventListener("submit", function(event) {
+
+            // Stop normal form submission
+
+            event.preventDefault();
+
+
+            // READ VALUES
+
+            const name = nameInput.value;
+
+            const email = emailInput.value;
+
+            const workshop = workshopInput.value;
+
+
+            // VALIDATION
+
+            if (name === "" || email === "" || workshop === "") {
+
+                message.textContent =
+                    "Please fill all registration details";
+
+                message.classList.remove("success");
+
+                message.classList.add("error");
+
+                return;
+
+            }
+
+
+            // CREATE PARTICIPANT OBJECT
+
+            const participant = {
+
+                name: name,
+
+                email: email,
+
+                workshop: workshop
+
+            };
+
+
+            // CONVERT OBJECT TO JSON
+
+            const jsonData = JSON.stringify(participant);
+
+
+            // STORE IN LOCAL STORAGE
+
+            localStorage.setItem("participant", jsonData);
+
+
+            // SUCCESS MESSAGE
+
+            message.textContent =
+                "Registration completed successfully!";
+
+            message.classList.remove("error");
+
+            message.classList.add("success");
+
+
+            // DISPLAY PARTICIPANT
+
+            participantList.innerHTML =
+
+                "<div class='participant'>" +
+
+                "<strong>Name:</strong> " +
+                participant.name +
+                "<br>" +
+
+                "<strong>Email:</strong> " +
+                participant.email +
+                "<br>" +
+
+                "<strong>Workshop:</strong> " +
+                participant.workshop +
+
+                "</div>";
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+    <style>
+        body{
+            font-family: Arial;
+            margin: 40px;
+        }
+        .success{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+        .employee{
+            border: 1px solid gray;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Employee Registration</h1>
+    <form id="employeeForm">
+        <input id="name" type="text" placeholder="Enter Employee Name">
+        <input id="email" type="email" placeholder="Enter Employee Email">
+        <select id="department">
+            <option value="">Select Department</option>
+            <option value="Development">Development</option>
+            <option value="Cyber Security">Cyber Security</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+    <div id="message"></div>
+    <div id="employeeList"></div>
+<script>
+    // GET ELEMENTS
+    const form = document.getElementById("employeeForm");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const departmentInput = document.getElementById("department");
+    const message = document.getElementById("message");
+    const employeeList = document.querySelector("#employeeList");
+
+    // INPUT EVENT
+    nameInput.addEventListener("input", function(event){
+        console.log("Typing: ", event.target.value);
+    })
+
+    // CHANGE EVENT
+    departmentInput.addEventListener("change", function(event){
+        console.log("Selected: ", event.target.value)
+    })
+
+    // SUBMIT EVENT
+    form.addEventListener("submit", function(event){
+        // Stop normal flow submission
+        event.preventDefault();
+
+        // READ VALUES
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const department = departmentInput.value;
+
+        // Validation
+        if (name === "" || email === "" || department === ""){
+            message.textContent = "Please fill all fields";
+            message.classList.remove("success");
+            message.classList.add("error");
+            return;
+        }
+
+        const employee = {
+            name: name,
+            email: email,
+            department: department
+        }
+
+        // Convert object to JSON
+        const jsonData = JSON.stringify(employee);
+
+        // Store in local storage
+        localStorage.setItem("employee", jsonData);
+
+        // Get Data from local storage
+        localStorage.getItem("employee");
+
+        // Convert JSON back to object
+        const savedData = JSON.parse(jsonData);
+
+        // Change Message
+        message.textContent = "Registration Successful";
+        message.classList.remove("error");
+        message.classList.add("success");
+
+        // Create a new HTML element
+        const card = document.createElement("div");
+        card.classList.add("employee");
+        card.textContent = savedData.name + " - " + savedData.email + " - " + savedData.department;
+
+        // Add element to page
+        employeeList.append(card);
+
+        // Clear form
+        form.reset();
+    })
+</script>
+</body>
+</html>

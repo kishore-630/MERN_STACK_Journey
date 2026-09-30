@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ShowBox
+        </title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                margin: 0;
+                font: 15px Arial;
+                background-color: #111;
+                color: #fff;
+            }
+            header{
+                text-align: center;
+                padding: 35px 15px;
+                background-color: #181818;
+            }
+            h1{
+                margin: 0 0 8px;
+                font-size: 36px;
+            }
+            header p{
+                color: #aaaaaa;
+            }
+            form{
+                display: flex;
+                max-width: 600px;
+                margin: 20px auto 0;
+            }
+            input{
+                flex: 1;
+                padding: 13px;
+                border: 0;
+                border-radius: 8px 0 0 8px;
+                font-size: 15px;
+            }
+            button{
+                padding: 13px;
+                border: 0;
+                cursor: pointer;
+                background-color: #e50914;
+                color: #fff;
+            } 
+            form button{
+                border-radius: 0 8px 8px 0;
+            }
+            main{
+                max-width: 1100px;
+                margin: auto;
+                padding: 25px;
+            }
+            h2{
+                margin-top: 10px;
+            }
+            .grid{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 18px
+            }
+            .card{
+                background-color: #1c1c1c;
+                border-radius: 10px;
+                overflow: hidden;
+                padding-bottom: 12px;
+            }
+            .card img{
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+            .card h3, .card p{
+                margin: 10px 12px;
+            }
+            .card p{
+                color: #207ced;
+            }
+            #details{
+                display: none;
+                background-color: #1c1c1c;
+                padding: 20px;
+                border-radius: 10px;
+                margin: 30px 0;
+            }
+            .episode{
+                padding: 10px;
+                background-color: #292929;
+                margin: 6px 0;
+                border-radius: 5px;
+            }
+            select{
+                padding: 8px;
+                margin: 10px 0;
+            }
+            #msg{
+                text-align: center;
+                color: #2f97f8;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Show Box</h1>
+            <p>Discover your next favorite show</p>
+            <form id = "form">
+                <input id = "search" placeholder="Tap Here For Tv Shows....">
+                <button type = "submit">Search</button>
+            </form>
+        </header>
+        <main>
+            <p id = "msg"></p>
+            <h2>Search Results</h2>
+            <div id = "shows" class = "grid"></div>
+            <section id = "details">
+                <h2 id = "title"></h2>
+                <p id = "info"></p>
+                <select id = "season"><option>All Seasons</option></select>
+                <div id = "episodes"></div>
+            </section>
+            <h2>My Favorites</h2>
+            <div id = "favs" class = "grid"></div>
+        </main>
+        <script>
+            const apiUrl = "https://api.tvmaze.com"
+            const searchForm = document.querySelector("#form");
+            const searchInput = document.querySelector("#search");
+            const showContainer = document.querySelector("#shows");
+            const message = document.querySelector("#msg");
+            const detailsSection = document.querySelector("#details");
+            const title = document.querySelector("#title");
+            const info = document.querySelector("#info");
+            const seasonSelect = document.querySelector("#season");
+            const episodesContainer = document.querySelector("#episodes");
+            const favoritesContainer = document.querySelector("#favs");
+            let episodes = []
+            let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+            searchForm.addEventListener("submit", function(event){
+                event.preventDefault();
+                const searchText = searchInput.value;
+                if (searchText === ""){
+                    message.textContent = "Please enter a show name";
+                    return;
+                }
+                searchShows(searchText);
+            });
+            async function searchShows(searchText) {
+                message.textContent = "Loading...."
+                try{
+                    const response = await fetch(
+                        `${apiUrl}/search/shows?q=${searchText}`
+                    );
+                    const data = await response.json();
+                    displayShows(data);
+                    message.textContent = ""
+                }catch(error){
+                    message.textContent = "Something went wrong"
+                }
+            }
+            function displayShows(data){
+                showContainer.innerHTML = ""
+                data.forEach(function(item){
+                    const show = item.show;
+                    const card = document.createElement("div");
+                    card.className = "card";
+                    const image = show.image ? show.image.medium : "";
+                    card.innerHTML = `
+                    <img src = "${image}">
+                    <h3>${show.name}</h3>
+                    <p>${show.rating.average || "N/A"}</p>
+                    <p>${show.genres.join(", ")};</p>
+                    <button onClick = "viewShow(${show.id})">
+                        View
+                    </button>
+                    <button onClick="addFavorite(${show.id})">
+                        Save
+                    </button>    
+                    `
+                    showContainer.appendChild(card);
+                })
+            }
+            async function viewShow(showId) {
+                try{
+                    const response = await fetch(`${apiUrl}/shows/${showId}`);
+                    const show = await response.json();
+                    detailsSection.style.display = "block";
+                    title.textContent = show.name;
+                    info.innerHTML = `
+                    <p>${show.rating.average || "N/A"}</p>
+                    <p>${show.language || "Unknown"}</p>
+                    <p>${show.genres.join(", ")}</p>
+                    ${show.summary || "No summary available"}
+                    `
+                    episodes = await (await fetch(`${apiUrl}/shows/${showId}/episodes`)).json()
+                    createSeasonList();
+                    showEpisodes(episodes)
+                }
+                catch(error){
+                    message.textContent = "Could not load till now"
+                }
+            }
+            function showEpisodes(episodeList){
+                episodesContainer.innerHTML = ""
+                episodeList.forEach(function(episode){
+                    const episodeElement = document.createElement("div");
+                    episodeElement.className = "episode"
+                    episodeElement.innerHTML= `
+                    <b>
+                        S${episode.season}
+                        E${episode.number}
+                    </b>
+                    - ${episode.name}
+                    `
+                    episodesContainer.appendChild(episodeElement);
+                })
+            }
+            function createSeasonList(){
+    seasonSelect.innerHTML = `<option value="all">All Seasons</option>`;
+    const seasons = [];
+
+    episodes.forEach(function(episode){
+        if(!seasons.includes(episode.season)){
+            seasons.push(episode.season);
+        }
+    });
+
+    seasons.forEach(function(seasonNumber){
+        seasonSelect.innerHTML += `
+            <option value="${seasonNumber}">
+                Season ${seasonNumber}
+            </option>`;
+    });
+}
+            seasonSelect.addEventListener("change", 
+                function(){
+                    const selectedSeason = seasonSelect.value;
+                    if (selectedSeason === "all"){
+                        showEpisodes(episodes)
+                        return
+                    }
+                    const filteredEpisodes = episodes.filter(function(episode){
+                        return episode.season == selectedSeason;
+                    })
+                    showEpisodes(filteredEpisodes)
+                }
+            )
+            async function addFavorite(showId) {
+                const alreadySaved = favorites.some(function(show){
+                    return show.id === showId
+                });
+                if (alreadySaved){
+                    return
+                }
+                const response = await fetch(`${apiUrl}/shows/${showId}`);
+                const show = await response.json();
+                favorites.push(show)
+                localStorage.setItem("favorites", JSON.stringify(favorites));
+                displayFavorites();
+            }
+            function displayFavorites(){
+                favorites.innerHTML = "";
+                favorites.forEach(function(show){
+                    favoritesContainer.innerHTML += `
+                    <div class = "card">
+                        <h3>${show.name}</h3>
+                        <p>${show.rating.average || "N/A"}</p>
+                        <button onclick = "viewShow(${show.id})">
+                        View    
+                        </button>
+                    </div>    
+                    `
+                })
+            }
+            displayFavorites()
+        </script>
+    </body>
+
+
+</html>

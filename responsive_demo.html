@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            shadowX profile
+        </title>
+        <style>
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: linear-gradient(
+        135deg,#1869bf,#c9c6cd);
+}
+.card{
+    width: 500px;
+    max-width: 90%;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #9bc6ff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px #000000;
+    background: radial-gradient(
+        circle at top,
+        #a6a4bc,
+        #16002f
+    );
+}
+ h1{
+    margin: 0;
+    color: rgb(0, 0, 0);
+ }
+ .stats{
+    display: flex;
+    gap:15px;
+    margin:  25px 0;
+ }
+
+.stat{
+    flex:1;
+    padding: 15px;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+}
+.button{
+    display:inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 25px;
+    border-radius:20px;
+    color: #09001f;
+    background-color: #cba50e;
+}
+@media (max-width: 600px){
+    .card{
+        padding: 20px;
+        }
+        h1{
+            font-size: 28px;
+        }
+}
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>ShadowX</h1>
+            <p>🗡️ Level 98 <strong>London</strong> </p>
+            <div class="stats">
+    <div class="stat">
+        🏆<br>
+        85 wins
+    </div>
+    <div class="stat">
+        🦅<br>
+        127 kills
+    </div>
+    <div class="stat">
+        ⭐<br>
+        1250 XP
+    </div>
+    
+    <div class="button">
+        PLAY NOW
+    </div>
+    </div>
+    </div> 
+    </body>
+</html>

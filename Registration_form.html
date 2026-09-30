@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Basic Student Form</title>
+    </head>
+    <style>
+     body{
+        font-family: arial;
+        margin: 40px;
+     }
+     .success {
+        color: orange;
+     }
+     .error {
+        color: red;
+     }
+.student{
+    border: 1px solid grey;
+    padding: 10px;
+    margin-top: 10px;
+}
+    </style>
+    <body>
+        <h1 id = "title">Student Registration</h1>
+        <form id ="studentform">
+          <input id = "name" type ="text" placeholder="Enter Name">
+          <input id = "email" type = "Email" placeholder="Enter Email">
+          <select id = "course">
+            <option value = ""> Select Course</option>
+            <option value = "MangoDB">MangoDB</option>
+            <option value = "React">React</option>
+          </select>
+        <button type = "submit">Register</button>
+        </form>
+        <p id = "message"></p>
+        <div id ="studentList"></div>
+    <script>
+        // Input Event
+        const form = document.getElementById("studentform");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const courseInput = document.getElementById("course");
+        const message = document.getElementById("message");
+        const studentList = document.querySelector("#studentList")
+        
+        //INPUT EVENT
+        nameInput.addEventListener("input",function(event){
+            console.log("typing:", event.target.value);
+        })
+
+        //CHANGE EVENT
+        
+    </script>
+    </body>
+</html>

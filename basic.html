@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .body{
+                background-color: aqua;
+                padding: 30px;
+            }
+            h1{
+                text-align: center;
+                font-size: 46px;
+                font-weight:bold;
+                color:brown;
+            }
+            .advise{
+                margin-top: 10px;
+                text-align: center;
+                font-size:36px;
+                font-style: italic;
+                color:rgb(10, 9, 8);
+            }
+             .container{
+                display:flex;
+                gap: 20px;
+            }
+.card{
+    width:350px;
+    background-color: antiquewhite;
+    border-radius:15px;
+    box-shadow: 0px 0px 15px rgb(0,2,4);
+}
+.card h2{
+    margin-top: 10px;
+    font-size: 26px;
+    color:#1b40e3;
+    text-align: center;
+}
+.demo{
+    margin:10px 20px;
+    border:1px solid black;
+    height:250px;
+    background: #ab97b0;
+}
+.visible{
+    overflow: visible;
+}
+.hidden{
+    overflow: hidden;
+}
+.scroll{
+    overflow: scroll;
+}
+.big-image{
+    width:350px;
+    height:200px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(#dc820c,#1b40e3,#f8ecec,#7c3df3,red,yellow,green,purple);
+}
+.text{
+    width:180px;
+    height:100px;
+    background: #dc820c;
+    font-weight: bold;
+}
+        </style>
+    </head>
+    <body>
+        <h1>Over Flow</h1>
+            <p class="advise">Mistakes Rectifications</p>
+        <div class="container">
+            <div class="card">
+                <h2> Overflow-visible</h2>
+                <p>This is used to show the extra content also in the box</p>
+                <div class="demo visible">
+                    <div class="big-image">
+                        IMAGE
+                    </div>
+                </div>
+            </div>
+            <!-- Demo hidden-->
+             <div class="card">
+                <h2> Demo hidden</h2>
+                <p>This is going to used for hidden the extra part in the entire layout</p>
+                    <div class="demo hidden">
+                        <div class="big-image">
+                            IMAGE
+                        </div>
+                    </div>
+                        
+             </div>
+            <!-- Overflow scroll-->
+             <div class="card">
+                <h2>Overflow scroll</h2>
+                <p>It is maily worked for the irrespective content.
+                    it can move both horizotal and vertical
+                </p>
+                <div class="demo scroll">
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste voluptatum atque rerum nesciunt debitis asperiores ratione culpa, eveniet alias facere ipsam tempora harum dolores voluptatibus, doloribus officia esse odit libero.</p>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>

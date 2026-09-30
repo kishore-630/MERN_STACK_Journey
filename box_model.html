@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Box Model</title>
+<style>    *{
+        font-family: arial, sans-serif; 
+    }
+    body {
+    background-color: pink;
+    }
+    .card{
+    width: 300px;
+    height: 100px;
+    border: 6px double black;
+    padding: 20px;
+    margin: 30px;
+        background-color: white;
+    }
+     /* The box model consists of the content area, padding, border, and margin. */
+    .name {
+    color: blue;
+    font-size: 24px;    
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid black;
+    }
+    
+    .login-button {
+       
+    background-color: yellow;
+    width: 200px;
+    height: 100px;
+    color: tomato;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border:3px solid red;
+    border-radius: 16px;
+    }
+
+    .box {
+        width: 300px;
+        height:20px;
+       padding: 20px;
+       margin: 30px;
+        background-color: navy;
+        color: white;
+        box-shadow: 5px -10px 10px 10px black;
+        border-radius: 10px;
+    }
+    .shadow-box {
+        width: 300px;
+        height:20px;
+       padding: 20px;
+       margin: 30px;
+        background-color: white;
+        color: white;
+        box-shadow: -1px 0px 10px 15px black;
+        border-radius: 5px;
+    }
+    h2.model {
+        color: red;
+        text-align: center;
+        font-size: 20px;
+       
+        margin-top: 0;
+
+      
+    }
+     </style>
+</head> 
+<body>
+
+    <h1> All Border,box-shadow and Border Radius Examples</h1>
+    <div class="card">
+        <h2 class="name">Gurrala Kishore Kumar</h2>
+        <p>Amith Sir Student....!<br>Traine at Savory Minds and Aspiring to become a web developer.</p>
+    </div>
+    <h2> Border and Its Radius with properties</h2>
+    <button  class="login-button">Login</button>
+<div class="box">
+    <h2 class="model">Box Model</h2>
+    </div>
+    <div class="shadow-box">
+    <h2 class="model">Krish-box Model</h2>
+    </div>
+</body>
+</html>

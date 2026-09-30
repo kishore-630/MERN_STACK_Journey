@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            async Javascript
+        </title>
+    </head>
+    <body>
+<h2>Employee Result</h2>
+<button onclick="getEmployeeResult()">Get Result</button>
+<p id ="output"></p>
+<script>
+    //1.callback
+    function getEmployeeResultUsingCallback(callback){
+        setTimeout(function(){
+            const employee = {
+                name :"kishore",
+                role: "Developer",
+                marks: 90,
+                grade : "A+"
+            }
+            callback(employee);
+        },2000)
+    }
+// 2. PROMISE  
+function getemployee(){
+    return new Promise(function (resolve,reject){
+        setTimeout(function(){
+        const success = true;
+        if (success){
+            resolve({
+                name:"Krish",
+                role:"Developer",
+                marks:90,
+                garde: "A+"
+            })
+        }
+        else{
+            reject(new Error("Failed to fet Employee Data"))
+        }
+        })
+    })
+}  
+//try ,catch, await 
+async function getEmployeeResult() { 
+
+    const output = document.getElementById("output");
+    output.textContent = "Loading the developer's page.....!"
+    try{
+        const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+        const employee = await respnose.json();
+        
+     console.log("Employee Data:",employee);
+     output.textContent = "Employee" + employee.name
+
+    }
+    catch{
+        console.log("Error:", error)      
+    }
+    
+}
+</script>
+    </body>
+    
+</html>

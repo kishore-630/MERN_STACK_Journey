@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>inset-shadow</title>
+    <style>
+     input {
+        width: 300px;
+        height: 20px;
+        padding: 20px;
+        margin: 30px 220px;
+        background-color: aqua;
+        font-size: 26px;
+        box-shadow: inset 0px 0px  5px black;
+        border-radius: 15px;
+         text-align: center;
+     }
+     .layered-shadow {
+        width: 300px;
+        height: 20px;
+        padding: 20px;
+        margin: 30px 220px;
+        background-color: yellow;
+        font-size: 26px;
+        box-shadow: 0px 0px 15px blueviolet,
+         3px 2px 10px cyan, 
+         3px 2px 25px tomato ;
+        border-radius: 15px;
+         text-align: center;
+     }
+h1{
+    color: tomato;
+    margin-top: 50px;
+    font-size: 66px;
+   
+    text-align: center;
+    text-shadow: 5px -20px 2px black;
+}
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Inset Shadow</h2>
+   <input type="text"  placeholder="Enter  Any text here..."></input> 
+   <h2 style="text-align: center;">Layered Shadow</h2>
+   <div class="layered-shadow"> MERN Stack Developer</div>
+   <h2 style="text-align: center; margin-top:30px;">Text Shadow</h2>
+   <h1 style="text-align: center;">Text-Area</h1>
+
+</body>
+</html>

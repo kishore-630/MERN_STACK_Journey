@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Overflow Demonstration</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-color:aliceblue;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .container{
+            display:flex;
+            
+            gap:25px;
+            
+        }
+
+        .card{
+            width:320px;
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            box-shadow:0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        .card h2{
+            margin-bottom:10px;
+        }
+
+        .demo{
+            border:2px solid #333;
+            height:180px;
+            margin-top:10px;
+            background:#fafafa;
+        }
+
+        .visible{
+            overflow:visible;
+        }
+
+        .hidden{
+            overflow:hidden;
+        }
+
+        .scroll{
+            overflow:scroll;
+        }
+
+        .auto{
+            overflow:auto;
+        }
+
+        .x{
+            overflow-x:auto;
+            overflow-y:hidden;
+            white-space:nowrap;
+        }
+
+        .y{
+            overflow-y:auto;
+        }
+
+        .big-image{
+            width:500px;
+            height:150px;
+            background:linear-gradient(to right,red,blue,orange,yellow,brown);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            font-size:20px;
+        }
+
+        .text{
+            padding:10px;
+            line-height:1.8;
+        }
+
+        .long-box{
+            width:1200px;
+            display:flex;
+            gap:10px;
+        }
+
+        .item{
+            min-width:180px;
+            height:100px;
+            background:#4caf50;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>CSS Overflow Demonstration</h1>
+
+<div class="container">
+
+    <!-- Visible -->
+    <div class="card">
+        <h2>1. Overflow: Visible (Default)</h2>
+
+        <p>
+            This image is larger than the box.
+            It is going to spill outside.
+        </p>
+
+        <div class="demo visible">
+            <div class="big-image">
+                IMAGE
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden -->
+    <div class="card">
+        <h2>2. Overflow: Hidden</h2>
+
+        <p>
+            The extra part is cut off.
+            Nothing outside is visible.
+        </p>
+
+        <div class="demo hidden">
+            <div class="big-image">
+                IMAGE
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll -->
+    <div class="card">
+        <h2>3. Overflow: Scroll</h2>
+
+        <p>
+            Scroll bars appear irrespective of content.
+            It can move horizontally and vertically.
+        </p>
+
+        <div class="demo scroll">
+            <div class="text">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Obcaecati similique possimus quos ullam, iure debitis eaque
+                    incidunt nihil quod nesciunt repellat tenetur nemo
+                    quisquam quibusdam voluptate sapiente laboriosam sint nisi?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorum, aspernatur.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auto -->
+    <div class="card">
+        <h2>4. Overflow: Auto</h2>
+
+        <p>
+            Scroll bars appear only when content becomes too large.
+        </p>
+
+        <div class="demo auto">
+            <div class="text">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quisquam nisi harum officiis? Similique modi repellat vero
+                    obcaecati fugit consequuntur ad tempora minus.
+                    Quae iusto similique tempora quas commodi culpa ex.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Officiis, porro.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overflow X -->
+    <div class="card">
+        <h2>5. Overflow-X</h2>
+
+        <p>Only horizontal scrolling is allowed.</p>
+
+        <div class="demo x">
+            <div class="long-box">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overflow Y -->
+    <div class="card">
+        <h2>6. Overflow-Y</h2>
+
+        <p>Only vertical scrolling is allowed.</p>
+
+        <div class="demo y">
+            <div class="text">
+                Line 1 <br>
+                Line 2 <br>
+                Line 3 <br>
+                Line 4 <br>
+                Line 5 <br>
+                Line 6 <br>
+                Line 7 <br>
+                Line 8 <br>
+                Line 9 <br>
+                Line 10 <br>
+                Line 11 <br>
+                Line 12
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
