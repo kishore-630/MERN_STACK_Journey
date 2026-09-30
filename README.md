@@ -434,32 +434,8 @@ REST APIs  →  Authentication  →  MERN Applications  →  Full-Stack Projects
 > This repository is continuously evolving as I learn new technologies, complete training tasks,
 > build projects, and explore new development concepts.
 
-New files, exercises and experiments will be added frequently. **This README is a stable overview,
-not a daily log.** Small practice files live inside their own folders and do not require any change
+New files, exercises and experiments will be added frequently. ** Small practice files live inside their own folders and do not require any change
 here.
-
-### When this README gets updated
-
-| Update the README when… | Example |
-|---|:---:|
-| A major technology is introduced | First React component added |
-| A major folder or section is added | A `BACKEND/` folder is created |
-| A significant project is added | First full-stack MERN app |
-| The learning roadmap changes | MERN stage completed, React stage begins |
-| The repository structure changes significantly | Major reorganization of folders |
-| The repository purpose changes | — |
-
-| Do **not** update the README for… | |
-|---|:---:|
-| A new daily practice file | ❌ |
-| A small exercise or task | ❌ |
-| A minor fix inside an existing file | ❌ |
-| Day-by-day progress notes | ❌ |
-| Contribution graphs or statistics | ❌ |
-
-There is intentionally **no daily log, no progress table, and no dated section** in this file.
-The folders are the record; this page is the map.
-
 ---
 
 <a id="philosophy"></a>
